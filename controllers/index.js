@@ -1,5 +1,5 @@
-/* home page controller */
-exports.homePage = (req, res, next) => {
+/* base home page controller */
+exports.homePage = (req, res) => {
     res.render('template', {
         locals: {
             title: 'SCP',
