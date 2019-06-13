@@ -1,6 +1,6 @@
-const Students = require('../model/m_student');
+const Students = require('../models/m_student');
 
-exports.getAllStudents = async (req, res, next) => {
+exports.getAllStudents = async (req, res) => {
     const arrOfStudents = await Students.getAllStudents();
     console.log(arrOfStudents);
     res.render('template', {
