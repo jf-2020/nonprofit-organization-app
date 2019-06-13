@@ -13,7 +13,7 @@
     ${studentList.map(kid =>
         `<tr>
             <td>${kid.student_id}</td>
-            <td>${kid.first_name}</td>
+            <td><a href="/students/${kid.student_id}">${kid.first_name}</a></td>
             <td>${kid.last_name} </td>
             <td>${kid.age} </td>
             <td>${kid.sponsorship} </td>
