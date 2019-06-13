@@ -1,15 +1,3 @@
-/* TODO: create the following tables:
- *			-grade 		-> DONE
- *			-supplies	-> DONE
- *			-schools 	-> DONE
- *			-ites 		-> HALF
- *			-stores 	-> DONE
- *			-students 	-> DONE
- *			-families 	-> DONE
- *			-users 		-> DONE
- *			-sponsors 	-> DONE
- */
-
 CREATE TABLE users (
 	user_id 		SERIAL 			PRIMARY KEY	,
 	password		VARCHAR(100)				,
@@ -54,9 +42,9 @@ CREATE TABLE grades (
 );
 
 CREATE TABLE links (
-    link_id         SERIAL             PRIMARY KEY        ,
-    stores_id         INT                                ,
-    students_id     INT                                ,
+    link_id         SERIAL             PRIMARY KEY  ,
+    stores_id       INT                             ,
+    students_id     INT                             ,
     families_id     INT
 );
 

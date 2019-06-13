@@ -8,14 +8,15 @@ exports.getAllStudents = async (req, res) => {
             title: 'Students List',
             userName: req.session.first_name,
             is_logged_in: req.session.is_logged_in,
-            studentList: arrOfStudents
+            items: arrOfStudents
         },
         partials: {
             partial: 'partial-studentsList',
-            nav: 'partial-nav'
+            nav: 'partial-nav',
         }
     });
 };
+
 exports.getOneStudent = async (req, res) => {
     const student_id = req.params.student;
     const arrOfStudents = await Students.getOneStudent(student_id);
@@ -34,3 +35,4 @@ exports.getOneStudent = async (req, res) => {
         }
     });
 }
+

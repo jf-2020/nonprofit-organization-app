@@ -1,0 +1,27 @@
+<section class="table-wrapper">
+    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+        <thead>
+            <tr>
+            ${Object.keys(items[0]).map(key =>
+                `<th>${key}</th>`
+            ).join('')}
+            </tr>
+        </thead>
+        ${items.map(sponsor =>
+        `<tr>
+            <td>
+                <figure class="image is-32x32">
+                    <img class="is-rounded" src="${sponsor['Photo']}">
+                </figure>
+            </td>
+            <td>${sponsor["First Name"]}</td>
+            <td>${sponsor["Last Name"]}</td>
+            <td>${sponsor["Email"]}</td>
+            <td>${sponsor["Phone"]}</td>
+            <td>${sponsor["Donation"]}</td>
+            <td>${sponsor["Given On"]}</td>
+            <td>${sponsor["Received On"]}</td>
+        </tr>`
+        ).join('')}            
+    </table>
+</section>

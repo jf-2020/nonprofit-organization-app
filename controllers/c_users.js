@@ -20,9 +20,6 @@ exports.login_get = (req, res) => {
 exports.login_post = async (req, res) => {
     const { email, password } = req.body;
 
-    console.log("Email:", email);
-    console.log("Password:", password);
-
     const userInstance = new User(null, password, null, null, email, null, null, null);    
     const user = await userInstance.getUserByEmail();
 
@@ -69,7 +66,7 @@ exports.sign_up_post = (req, res) => {
 
     const user = new User(null, hash, first_name, last_name, email, null, null, null);    
 
-    user.create().then(() => {
+    user.addUser().then(() => {
         res.redirect('/');
     });
 }

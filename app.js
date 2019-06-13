@@ -8,6 +8,7 @@ const express = require('express'),
 
 const indexRouter = require('./routes/r_index'),
       studentsRouter = require('./routes/r_student'),
+      sponsorsRouter = require('./routes/r_sponsors'),
       usersRouter = require('./routes/r_users'),
       familiesRouter = require('./routes/r_family');
 
@@ -32,7 +33,9 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/students', studentsRouter);
+app.use('/sponsors', sponsorsRouter);
 app.use('/users', usersRouter);
 app.use('/families', familiesRouter);
 
 module.exports = app;
+

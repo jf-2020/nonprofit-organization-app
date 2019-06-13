@@ -15,22 +15,57 @@ class Students {
 
     static async getAllStudents() {
         try {
-            const response = await db.any(`select * from students`);
+            const response = await db.any(`
+                                    SELECT
+                                        student_id as "Student ID", 
+                                        first_name as "First Name",
+                                        last_name as "Last Name",
+                                        age as "Age",
+                                        sponsorship as "Sponsorship Level",
+                                        money as "Money"
+                                    FROM
+                                        students`);
             return response;
-        } catch(err) {
-            return err.message;
+        } catch(error) {
+            return error.message;
+        }
+    }
+
+    static async getById(id) {
+        const query = `SELECT
+                            first_name as "First",
+                            last_name as "Last",
+                            age as "Age",
+                            sponsorship as "Sponsorship Level",
+                            money as "Money"
+                        FROM
+                            students
+                        WHERE
+                            student_id = ${id}`
+                      ;
+        try {
+            const response = await db.one(query);
+            console.log(`Student: ${response.First} ${response.Last} retrieved`);
+            return response;
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
         }
     }
 
     static async addStudent(first_name, last_name, age, sponsorship, money) {
-        const query = `INSERT INTO students (first_name, last_name, age, sponsorship, money) VALUES ('${first_name}', '${last_name}', '${age}', '${sponsorship}', '${money}')`;
-
+        const query = `INSERT INTO students
+                            (first_name, last_name, age, sponsorship, money) 
+                       VALUES
+                            ('${first_name}', '${last_name}', '${age}', '${sponsorship}', '${money}')`
+                       ;
         try {
-            let response = await db.result(query);
+            const response = await db.result(query);
+            console.log(`Student: ${first_name} ${last_name} created`);
             return response;
-        } catch(err) {
-            console.log("ERROR", err.message);
-            return err;
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error;
         };
     }
 
