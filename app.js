@@ -6,8 +6,9 @@ const express = require('express'),
       session = require('express-session')
       FileStore = require('session-file-store')(session);
 
-const indexRouter = require('./routes/r_index');
-const studentsRouter = require('./routes/r_student');
+const indexRouter = require('./routes/r_index'),
+      studentsRouter = require('./routes/r_student'),
+      usersRouter = require('./routes/r_users');
 
 const app = express();
 
@@ -30,5 +31,6 @@ app.use(session({
 
 app.use('/', indexRouter);
 app.use('/students', studentsRouter);
+app.use('/users', usersRouter);
 
 module.exports = app;

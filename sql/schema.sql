@@ -2,7 +2,7 @@
  *			-grade 		-> DONE
  *			-supplies	-> DONE
  *			-schools 	-> DONE
- *			-items
+ *			-ites 		-> HALF
  *			-stores 	-> DONE
  *			-students 	-> DONE
  *			-families 	-> DONE
@@ -12,6 +12,7 @@
 
 CREATE TABLE users (
 	user_id 		SERIAL 			PRIMARY KEY	,
+	password		VARCHAR(100)				,
 	first_name 		VARCHAR(50)					,
 	last_name 		VARCHAR(50)					,
 	email 			VARCHAR(200)				,
@@ -60,16 +61,16 @@ CREATE TABLE links (
 );
 
 CREATE TABLE sponsors (
-	sponsor_id 			SERIAL 			PRIMARY KEY						,
-	first_name 			VARCHAR(255)									,
-	last_name 			VARCHAR(255)									,
-	email 				VARCHAR(500)									,
-	phone 				VARCHAR(50)										,
-	money_donated 		DECIMAL(8,2)									,
-	date_paid 			DATE											,
-	date_deposited 		DATE											,
-	photo 				VARCHAR(200)									,
-	link_id 		INT 			REFERENCES links (link_id)
+	sponsor_id 			SERIAL 			PRIMARY KEY							,
+	first_name 			VARCHAR(255)										,
+	last_name 			VARCHAR(255)										,
+	email 				VARCHAR(500)										,
+	phone 				VARCHAR(50)											,
+	money_donated 		DECIMAL(8,2)										,
+	date_paid 			DATE												,
+	date_deposited 		DATE												,
+	photo 				VARCHAR(200)										,
+	link_id				INT				REFERENCES links (link_id)
 );
 
 CREATE TABLE students (
@@ -90,6 +91,3 @@ CREATE TABLE supplies (
 	quantity 		INT												,
 	link_id 		INT 			REFERENCES links (link_id)
 );
-
-
-
