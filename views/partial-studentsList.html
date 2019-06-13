@@ -1,0 +1,24 @@
+<section class="table-wrapper">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Age</th>
+                <th>Sponsored</th>
+                <th>Money</th>
+            </tr>
+        </thead>
+    ${studentList.map(kid =>
+        `<tr>
+            <td>${kid.student_id}</td>
+            <td>${kid.first_name}</td>
+            <td>${kid.last_name} </td>
+            <td>${kid.age} </td>
+            <td>${kid.sponsorship} </td>
+            <td>${kid.money} </td>
+        </tr>`
+        ).join('')}            
+    </table>
+</section>
