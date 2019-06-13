@@ -23,7 +23,7 @@ exports.getOneStudent = async (req, res) => {
 
     res.render('template', {
         locals: {
-            title: 'Students List',
+            title: 'Student Profile',
             userName: req.session.first_name,
             is_logged_in: req.session.is_logged_in,
             studentList: arrOfStudents
