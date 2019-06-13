@@ -4,5 +4,6 @@ const express = require('express'),
 
 /* GET students page */
 router.get('/', studentController.getAllStudents);
+router.get('/:student', studentController.getOneStudent);
 
 module.exports = router;
