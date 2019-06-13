@@ -1,24 +1,21 @@
 <section class="table-wrapper">
-    <table class="table">
+    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
         <thead>
             <tr>
-                <th>Student ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Age</th>
-                <th>Sponsored</th>
-                <th>Money</th>
+            ${Object.keys(items[0]).map(key =>
+                `<th>${key}</th>`
+            ).join('')}
             </tr>
         </thead>
-    ${studentList.map(kid =>
-        `<tr>
-            <td>${kid.student_id}</td>
-            <td>${kid.first_name}</td>
-            <td>${kid.last_name} </td>
-            <td>${kid.age} </td>
-            <td>${kid.sponsorship} </td>
-            <td>${kid.money} </td>
-        </tr>`
-        ).join('')}            
+        ${items.map(kid =>
+            `<tr>
+                <td>${kid["Student ID"]}</td>
+                <td>${kid["First Name"]}</td>
+                <td>${kid["Last Name"]}</td>
+                <td>${kid["Age"]}</td>
+                <td>${kid["Sponsorship Level"]}</td>
+                <td>${kid["Money"]}</td>
+            </tr>`
+        ).join('')}         
     </table>
 </section>

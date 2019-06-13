@@ -15,22 +15,35 @@ class Students {
 
     static async getAllStudents() {
         try {
-            const response = await db.any(`select * from students`);
+            const response = await db.any(`
+                                    SELECT
+                                        student_id as "Student ID", 
+                                        first_name as "First Name",
+                                        last_name as "Last Name",
+                                        age as "Age",
+                                        sponsorship as "Sponsorship Level",
+                                        money as "Money"
+                                    FROM
+                                        students`);
             return response;
-        } catch(err) {
-            return err.message;
+        } catch(error) {
+            return error.message;
         }
     }
 
     static async addStudent(first_name, last_name, age, sponsorship, money) {
-        const query = `INSERT INTO students (first_name, last_name, age, sponsorship, money) VALUES ('${first_name}', '${last_name}', '${age}', '${sponsorship}', '${money}')`;
-
+        const query = `INSERT INTO students
+                            (first_name, last_name, age, sponsorship, money) 
+                       VALUES
+                            ('${first_name}', '${last_name}', '${age}', '${sponsorship}', '${money}')`
+                       ;
         try {
-            let response = await db.result(query);
+            const response = await db.result(query);
+            console.log(`Student was created with first name, ${first_name}, and last name, ${last_name}`);
             return response;
-        } catch(err) {
-            console.log("ERROR", err.message);
-            return err;
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error;
         };
     }
 

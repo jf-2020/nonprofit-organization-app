@@ -21,10 +21,10 @@ class User {
 	    this.user_type = user_type
     }
 
-    async create() {
+    async addUser() {
         try {
             const response = await db.one(`
-                insert into users 
+                INSERT INTO users 
                     (
                     password,
                     first_name,
@@ -34,9 +34,9 @@ class User {
                     photo,
                     user_type
                     ) 
-                values 
+                VALUES 
                     ($1, $2, $3, $4, null, null, null)
-                returning email
+                RETURNING email
                 `, [this.password, this.first_name, this.last_name, this.email]);
             console.log("user was created with email:", response.email);
             return response;
