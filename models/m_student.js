@@ -69,6 +69,15 @@ class Students {
         };
     }
 
+    static async getOneStudent(student_id) {
+        try {
+            const response = await db.one(`SELECT student_id, first_name, last_name, age, sponsorship, money FROM students WHERE students.student_id = '${student_id}'`);
+            return response;
+        } catch(err) {
+            return err.message;
+        }
+    }
+
 }
 
 module.exports = Students;

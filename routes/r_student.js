@@ -4,6 +4,7 @@ const express = require('express'),
 
 /* GET students page */
 router.get('/', studentController.getAllStudents);
+router.get('/:student', studentController.getOneStudent);
 
 /* GET student by id */
 router.get('/:student_id', studentController.getById);
