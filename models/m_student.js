@@ -31,6 +31,28 @@ class Students {
         }
     }
 
+    static async getById(id) {
+        const query = `SELECT
+                            first_name as "First",
+                            last_name as "Last",
+                            age as "Age",
+                            sponsorship as "Sponsorship Level",
+                            money as "Money"
+                        FROM
+                            students
+                        WHERE
+                            student_id = ${id}`
+                      ;
+        try {
+            const response = await db.one(query);
+            console.log(`Student: ${response.First} ${response.Last} retrieved`);
+            return response;
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+    }
+
     static async addStudent(first_name, last_name, age, sponsorship, money) {
         const query = `INSERT INTO students
                             (first_name, last_name, age, sponsorship, money) 
@@ -39,7 +61,7 @@ class Students {
                        ;
         try {
             const response = await db.result(query);
-            console.log(`Student was created with first name, ${first_name}, and last name, ${last_name}`);
+            console.log(`Student: ${first_name} ${last_name} created`);
             return response;
         } catch(error) {
             console.log("Error:", error.message);

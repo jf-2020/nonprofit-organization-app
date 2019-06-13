@@ -5,4 +5,7 @@ const express = require('express'),
 /* GET students page */
 router.get('/', studentController.getAllStudents);
 
+/* GET student by id */
+router.get('/:student_id', studentController.getById);
+
 module.exports = router;

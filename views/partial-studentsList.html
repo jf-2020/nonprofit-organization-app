@@ -7,15 +7,19 @@
             ).join('')}
             </tr>
         </thead>
-        ${items.map(kid =>
-            `<tr>
-                <td>${kid["Student ID"]}</td>
-                <td>${kid["First Name"]}</td>
-                <td>${kid["Last Name"]}</td>
-                <td>${kid["Age"]}</td>
-                <td>${kid["Sponsorship Level"]}</td>
-                <td>${kid["Money"]}</td>
+        <tbody>
+        ${items.map(student =>
+            `<tr id="student-${student['Student ID']}">
+                <td>${student["Student ID"]}</td>
+                <td>${student["First Name"]}</td>
+                <td>${student["Last Name"]}</td>
+                <td>${student["Age"]}</td>
+                <td>${student["Sponsorship Level"]}</td>
+                <td>${student["Money"]}</td>
             </tr>`
-        ).join('')}         
+        ).join('')} 
+        </tbody>        
     </table>
 </section>
+
+<!-- <script type="text/javascript" src="javascripts/student_list.js"></script> -->
