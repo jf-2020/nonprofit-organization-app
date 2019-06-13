@@ -1,6 +1,6 @@
 const express = require('express'),
       router = express.Router(),
-      indexController = require('../controllers/index');
+      indexController = require('../controllers/c_index');
 
 const homePage = indexController.homePage;
 
