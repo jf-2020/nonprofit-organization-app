@@ -13,17 +13,17 @@ class Students {
         this.sponsors_id = sponsors_id;
     }
 
-    static async getAll() {
+    static async getAllStudents() {
         try {
-            const response = await db.any(`select * from businesstb`);
+            const response = await db.any(`select * from students`);
             return response;
         } catch(err) {
             return err.message;
         }
     }
 
-    static async update(name, address, street, city, state, menu) {
-        const query = `INSERT INTO restaurantstb (name, address, street, city, state, menu) VALUES ('${name}', '${address}', '${street}', '${city}', '${state}', '${menu}')`;
+    static async addStudent(first_name, last_name, age, sponsorship, money) {
+        const query = `INSERT INTO students (first_name, last_name, age, sponsorship, money) VALUES ('${first_name}', '${last_name}', '${age}', '${sponsorship}', '${money}')`;
 
         try {
             let response = await db.result(query);
