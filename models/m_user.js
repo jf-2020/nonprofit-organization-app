@@ -25,7 +25,15 @@ class User {
         try {
             const response = await db.one(`
                 insert into users 
-                    (password, first_name, last_name, email, phone, photo, user_type) 
+                    (
+                    password,
+                    first_name,
+                    last_name,
+                    email,
+                    phone,
+                    photo,
+                    user_type
+                    ) 
                 values 
                     ($1, $2, $3, $4, null, null, null)
                 returning email
@@ -33,7 +41,7 @@ class User {
             console.log("user was created with email:", response.email);
             return response;
         } catch(error) {
-            console.log("Error:", error).message;
+            console.log("Error:", error.message);
             return error.message;
         }
     }

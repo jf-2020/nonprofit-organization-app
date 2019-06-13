@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs'),
-      User = require('../models/user');
+      User = require('../models/m_user');
 
 /* GET request for home page login */
 exports.login_get = (req, res) => {

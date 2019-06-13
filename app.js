@@ -6,8 +6,8 @@ const express = require('express'),
       session = require('express-session')
       FileStore = require('session-file-store')(session);
 
-const indexRouter = require('./routes/index'),
-      usersRouter = require('./routes/users');
+const indexRouter = require('./routes/r_index'),
+      usersRouter = require('./routes/r_users');
 
 
 const app = express();
