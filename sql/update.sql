@@ -1,5 +1,6 @@
 --RESET DATABASE SCRIPT
 
+--/Users/Liz/Desktop/Development/April2019DC/Unit5/PostgreSQLPractice/practiceMay/sponsoredChildren/nonprofit-organization-app-sql
 --local directory: c:/Users/jcf12/dc/development/april2019dc/project_2/nonprofit-organization-app/sql
 
 --REMOVES
