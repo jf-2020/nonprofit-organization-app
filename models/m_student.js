@@ -17,8 +17,8 @@ class Students {
         try {
             const response = await db.any(`select * from students`);
             return response;
-        } catch(err) {
-            return err.message;
+        } catch(error) {
+            return error.message;
         }
     }
 
@@ -28,9 +28,9 @@ class Students {
         try {
             let response = await db.result(query);
             return response;
-        } catch(err) {
+        } catch(error) {
             console.log("ERROR", err.message);
-            return err;
+            return error;
         };
     }
 
@@ -38,8 +38,8 @@ class Students {
         try {
             const response = await db.one(`SELECT student_id, first_name, last_name, age, sponsorship, money FROM students WHERE students.student_id = '${student_id}'`);
             return response;
-        } catch(err) {
-            return err.message;
+        } catch(error) {
+            return error.message;
         }
     }
 

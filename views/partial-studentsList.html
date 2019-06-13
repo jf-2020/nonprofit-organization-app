@@ -8,6 +8,7 @@
                 <th>Age</th>
                 <th>Sponsored</th>
                 <th>Money</th>
+                <th>Family</th>
             </tr>
         </thead>
     ${studentList.map(kid =>
@@ -18,6 +19,7 @@
             <td>${kid.age} </td>
             <td>${kid.sponsorship} </td>
             <td>${kid.money} </td>
+            <td><a href="/families/${familyList.family_id}">family</a></td>
         </tr>`
         ).join('')}            
     </table>

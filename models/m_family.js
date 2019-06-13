@@ -14,8 +14,8 @@ class Family {
         try {
             const response = await db.any(`select * from families`);
             return response;
-        } catch(err) {
-            return err.message;
+        } catch(error) {
+            return error.message;
         }
     }
 
@@ -23,8 +23,19 @@ class Family {
         try {
             const response = await db.one(`SELECT family_id, name, size, location, church_affiliation , money FROM families WHERE families.family_id = '${family_id}'`);
             return response;
-        } catch(err) {
-            return err.message;
+        } catch(error) {
+            return error.message;
+        }
+    }
+
+    static async getFamilyName(student_id) {
+        try {
+            const response = await db.one(`
+                SELECT name FROM families WHERE families.family_id = '${student_id}'
+            `);
+            return response;
+        } catch(error) {
+            return error.message;
         }
     }
 

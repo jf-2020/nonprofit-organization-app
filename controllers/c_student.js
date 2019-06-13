@@ -1,14 +1,18 @@
 const Students = require('../models/m_student');
+const Family = require('../models/m_family');
 
 exports.getAllStudents = async (req, res) => {
+    const student_id = req.params.student;
     const arrOfStudents = await Students.getAllStudents();
+    const arrOfFamilies = await Family.getFamilyName(student_id);
     
     res.render('template', {
         locals: {
             title: 'Students List',
             userName: req.session.first_name,
             is_logged_in: req.session.is_logged_in,
-            studentList: arrOfStudents
+            studentList: arrOfStudents,
+            familyList: arrOfFamilies
         },
         partials: {
             partial: 'partial-studentsList',
@@ -16,6 +20,7 @@ exports.getAllStudents = async (req, res) => {
         }
     });
 };
+
 exports.getOneStudent = async (req, res) => {
     const student_id = req.params.student;
     const arrOfStudents = await Students.getOneStudent(student_id);
