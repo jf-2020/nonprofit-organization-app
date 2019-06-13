@@ -1,3 +1,4 @@
+--create some students
 INSERT INTO students (student_id,first_name,last_name,age,sponsorship,grades_id,money,link_id)
 VALUES
 (1,'Wells','Esby',12,'partial',null,51.21,null),
@@ -20,3 +21,11 @@ VALUES
 (18,'Honoria','Iacapucci',3,'partial',null,42.49,null),
 (19,'Nestor','Daine',17,'full',null,27.49,null),
 (20,'Rosene','Kenward',11,'partial',null,97.26,null);
+
+--create some users
+INSERT INTO users
+	(password, first_name, last_name, email, phone, photo, user_type)
+VALUES
+	('123', 'Liz', 'Aitken', 'liz_aitken@gmail.com', '555-555-5555', null, null),
+	('123', 'Jack', 'Faulk', 'jack_faulk@gmail.com', '123-456-7890', null, null)
+;
