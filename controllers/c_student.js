@@ -20,7 +20,6 @@ exports.getAllStudents = async (req, res) => {
 exports.getOneStudent = async (req, res) => {
     const student_id = req.params.student;
     const arrOfStudents = await Students.getOneStudent(student_id);
-    console.log(arrOfStudents);
 
     res.render('template', {
         locals: {
