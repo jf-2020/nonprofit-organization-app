@@ -9,7 +9,8 @@ const express = require('express'),
 const indexRouter = require('./routes/r_index'),
       studentsRouter = require('./routes/r_student'),
       usersRouter = require('./routes/r_users'),
-      familiesRouter = require('./routes/r_family');
+      familiesRouter = require('./routes/r_family'),
+      storesRouter = require('./routes/r_stores');
 
 const app = express();
 
@@ -34,5 +35,6 @@ app.use('/', indexRouter);
 app.use('/students', studentsRouter);
 app.use('/users', usersRouter);
 app.use('/families', familiesRouter);
+app.use('/stores', storesRouter);
 
 module.exports = app;
