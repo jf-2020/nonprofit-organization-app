@@ -7,7 +7,8 @@
                 <th>Size</th>
                 <th>Location</th>
                 <th>Church Affiliation</th>
-                <th>How much is in their total account?</th>        
+                <th>How much is in their total account?</th> 
+                <th>Students in the family</th>       
             </tr>
         </thead>
             <tr>
@@ -17,5 +18,9 @@
                 <td>${familyList.location}</td>
                 <td>${familyList.church_affiliation}</td>
                 <td>${familyList.money}</td>
-            </tr>            
+            ${studentList.map(kid =>
+                `
+                <td>${kid.first_name} ${kid.last_name}</td>                
+                `).join('')} 
+            </tr>          
     </table>

@@ -27,6 +27,31 @@ class Students {
                 l.students_id = s.student_id`;
 
             const response = await db.any(queryAll);
+            console.log(response);
+            return response;
+        }catch(error) {
+            return error.message;
+        }
+    }
+
+    static async getAllStudentsByFamilyId(family_id) {
+        try {
+            const queryAll = `
+            SELECT 
+                first_name,
+                last_name
+            FROM  
+                students,
+                families,
+                link
+            WHERE
+                students.student_id = link.students_id
+                AND
+                link.families_id = '${family_id}'
+                AND 
+                families.family_id = '${family_id}'`;
+
+            const response = await db.any(queryAll);
         
             return response;
         }catch(error) {
