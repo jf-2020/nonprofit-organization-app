@@ -6,7 +6,7 @@ CREATE TABLE users (
 	email 			VARCHAR(200)				,
 	phone 			VARCHAR(200)				,
 	photo 			VARCHAR(500)				,
-	user_type 		INT
+	user_type 		VARCHAR(30)
 );
 
 CREATE TABLE families (
@@ -48,8 +48,8 @@ CREATE TABLE sponsors (
 	email 				VARCHAR(500)										,
 	phone 				VARCHAR(50)											,
 	money_donated 		DECIMAL(8,2)										,
-	date_paid 			DATE												,
-	date_deposited 		DATE												,
+	date_paid 			VARCHAR(20)											,
+	date_deposited 		VARCHAR(20)											,
 	photo 				VARCHAR(200)										,
 	link_id				INT
 );

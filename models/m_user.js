@@ -71,6 +71,28 @@ class User {
             return error.message;
         }
     }
+
+    static async getUserByName(name) {
+        try {
+            const response = await db.one(`
+                        SELECT
+                            first_name as "first",
+                            last_name as "last",
+                            email,
+                            phone,
+                            photo,
+                            user_type as "permissions"
+                        FROM
+                            users
+                        WHERE
+                            first_name = '${name}'
+            `);
+            return response;
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+    }
 }
 
 module.exports = User;
