@@ -122,6 +122,7 @@ class Sponsor {
 
     async addSponsor() {
         try {
+            console.log("here");
             const response = await db.one(`
                 INSERT INTO sponsors
                     (   
