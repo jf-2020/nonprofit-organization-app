@@ -8,4 +8,5 @@ router.get('/', studentController.getAllStudents);
 /* GET student by id */
 router.get('/:student', studentController.getOneStudent);
 
+
 module.exports = router;

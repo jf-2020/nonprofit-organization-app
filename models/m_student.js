@@ -1,8 +1,8 @@
 const db = require('./conn.js');
 
 class Students {
-    constructor(student_id, first_name, last_name, age, sponsorship, grades_id , money, families_id, sponsors_id) 
-    {
+    constructor(student_id, first_name, last_name, age, sponsorship, grades_id , money, families_id, sponsors_id, link_id){
+
         this.student_id = student_id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -12,6 +12,7 @@ class Students {
         this.money = money;
         this.families_id = families_id;
         this.sponsors_id = sponsors_id;
+        this.link_id= link_id;
     }
 
     static async getAllStudentIDs() {
@@ -31,19 +32,45 @@ class Students {
 
     static async getAllStudents() {
         try {
-            const response = await db.any(`
-                SELECT
-                    student_id as "Student ID",
-                    first_name as "First Name",
-                    last_name as "Last Name",
-                    age as "Age",
-                    sponsorship as "Sponsorship Level",
-                    money as "Money"
-                FROM 
-                    students`);
+            const queryAll = `
+            SELECT * FROM 
+                links l, 
+                students s, 
+                families f 
+            WHERE 
+                l.families_id = f.family_id 
+                AND
+                l.students_id = s.student_id`;
+
+            const response = await db.any(queryAll);
+            console.log(response);
             return response;
-        } catch(error) {
-            console.log("Error:", error.message);
+        }catch(error) {
+            return error.message;
+        }
+    }
+
+    static async getAllStudentsByFamilyId(family_id) {
+        try {
+            const queryAll = `
+            SELECT 
+                first_name,
+                last_name
+            FROM  
+                students,
+                families,
+                links
+            WHERE
+                students.student_id = links.students_id
+                AND
+                links.families_id = '${family_id}'
+                AND 
+                families.family_id = '${family_id}'`;
+
+            const response = await db.any(queryAll);
+        
+            return response;
+        }catch(error) {
             return error.message;
         }
     }
@@ -73,8 +100,8 @@ class Students {
                                             WHERE
                                                 student_id = '${student_id}'`);
             return response;
-        } catch(err) {
-            return err.message;
+        } catch(error) {
+            return error.message;
         }
     }
 }
