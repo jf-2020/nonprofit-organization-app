@@ -46,7 +46,8 @@ exports.addSponsor_get = (req, res) => {
         locals: {
             title: 'Add Sponsor',
             is_logged_in: req.session.is_logged_in,
-            first_name: req.session.first_name
+            first_name: req.session.first_name,
+            userName: req.session.first_name
         },
         partials: {
             partial: 'partial-add-sponsor',
@@ -78,7 +79,8 @@ exports.deleteSponsor_get = (req, res) => {
         locals: {
             title: 'Delete Sponsor',
             is_logged_in: req.session.is_logged_in,
-            first_name: req.session.first_name
+            first_name: req.session.first_name,
+            userName: req.session.first_name
         },
         partials: {
             partial: 'partial-delete-sponsor',

@@ -30,14 +30,9 @@ CREATE TABLE schools (
 	address 	VARCHAR(250)
 );
 
-CREATE TABLE items (
-	item_list_id	SERIAL	PRIMARY KEY
-);
-
 CREATE TABLE grades (
 	grade_id 	SERIAL 			PRIMARY KEY						,
 	level 		VARCHAR(30)										,
-	items_id 	INT 			REFERENCES items (item_list_id)	,
 	school_id 	INT 			REFERENCES schools (school_id)
 );
 
@@ -61,16 +56,17 @@ CREATE TABLE students (
 	age 			INT													,				
 	sponsorship 	VARCHAR(30)											,
 	grades_id 		INT													,
-	money 			DECIMAL(8,2)										,
-	link_id 		INT
+	money 			DECIMAL(8,2)										
 );
 
 CREATE TABLE supplies (
-	supply_id 		SERIAL 			PRIMARY KEY						,
-	product_name 	VARCHAR(100)									,
-	price 			DECIMAL(8,2)									,
-	quantity 		INT												,
-	link_id 		INT
+	supply_id 		SERIAL 			PRIMARY KEY						 ,
+	supply_name 	VARCHAR(100)									 ,
+	unit_cost		NUMERIC(8,2)									 ,
+	quantity 		INT												 ,
+	student_id 		INT				REFERENCES students (student_id) ,
+    store_id 		INT				REFERENCES stores (store_id) 	 ,
+    grade_id 		INT				REFERENCES grades (grade_id)
 );
 
 CREATE TABLE links (
