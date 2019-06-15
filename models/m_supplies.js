@@ -33,6 +33,46 @@ class Supplies {
         }
     }
 
+    static async getAllItemsByGradeID(gradeSelected) {
+        try {
+            const response = await db.any(`
+            SELECT 
+                supply_id,
+                supply_name,
+                unit_cost,
+                quantity
+            FROM
+                supplies
+            WHERE
+                supplies.grade_id = '${gradeSelected}'
+            `);
+            return response;
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+    }
+
+    static async getAllItemsByStudentID(studentSelected) {
+        try {
+            const response = await db.any(`
+            SELECT 
+                supply_id,
+                supply_name,
+                unit_cost,
+                quantity
+            FROM
+                supplies
+            WHERE
+                supplies.student_id = '${studentSelected}'
+            `);
+            return response;
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+    }
+
 }
 
 module.exports = Supplies;
