@@ -10,6 +10,7 @@ const indexRouter = require('./routes/r_index'),
       studentsRouter = require('./routes/r_student'),
       usersRouter = require('./routes/r_users'),
       familiesRouter = require('./routes/r_family'),
+      gradesRouter = require('./routes/r_grades'),
       storesRouter = require('./routes/r_stores');
 
 const app = express();
@@ -36,5 +37,6 @@ app.use('/students', studentsRouter);
 app.use('/users', usersRouter);
 app.use('/families', familiesRouter);
 app.use('/stores', storesRouter);
+app.use('/grades', gradesRouter);
 
 module.exports = app;
