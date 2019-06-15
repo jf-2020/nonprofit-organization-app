@@ -21,10 +21,10 @@ class User {
 	    this.user_type = user_type
     }
 
-    async create() {
+    async addUser() {
         try {
             const response = await db.one(`
-                insert into users 
+                INSERT INTO users 
                     (
                     password,
                     first_name,
@@ -34,9 +34,9 @@ class User {
                     photo,
                     user_type
                     ) 
-                values 
+                VALUES 
                     ($1, $2, $3, $4, null, null, null)
-                returning email
+                RETURNING email
                 `, [this.password, this.first_name, this.last_name, this.email]);
             console.log("user was created with email:", response.email);
             return response;
@@ -67,6 +67,28 @@ class User {
             console.log("User:", response);
             return response;
         } catch (error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+    }
+
+    static async getUserByName(name) {
+        try {
+            const response = await db.one(`
+                        SELECT
+                            first_name as "first",
+                            last_name as "last",
+                            email,
+                            phone,
+                            photo,
+                            user_type as "permissions"
+                        FROM
+                            users
+                        WHERE
+                            first_name = '${name}'
+            `);
+            return response;
+        } catch(error) {
             console.log("Error:", error.message);
             return error.message;
         }
