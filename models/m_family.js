@@ -21,8 +21,18 @@ class Family {
 
     static async getOneFamily(family_id) {
         try {
-            const response = await db.one(`SELECT 
-            family_id, name, size, location, church_affiliation , money FROM families WHERE family_id = '${family_id}'`);
+            const response = await db.one(`
+            SELECT 
+                family_id, 
+                name, 
+                size, 
+                location, 
+                church_affiliation, 
+                money 
+            FROM 
+                families 
+            WHERE 
+                family_id = '${family_id}'`);
             return response;
         } catch(error) {
             return error.message;
