@@ -14,15 +14,14 @@ exports.getAllStudents = async (req, res) => {
         },
         partials: {
             partial: 'partial-studentsList',
-            nav: 'partial-nav'
+            nav: 'partial-nav',
         }
     });
 };
 
-
 exports.getOneStudent = async (req, res) => {
     const student_id = req.params.student;
-    const arrOfStudents = await Students.getOneStudent(student_id);   
+    const arrOfStudents = await Students.getOneStudent(student_id);
 
     res.render('template', {
         locals: {
@@ -37,3 +36,4 @@ exports.getOneStudent = async (req, res) => {
         }
     });
 }
+

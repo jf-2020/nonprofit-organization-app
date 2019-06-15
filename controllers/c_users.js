@@ -20,9 +20,6 @@ exports.login_get = (req, res) => {
 exports.login_post = async (req, res) => {
     const { email, password } = req.body;
 
-    console.log("Email:", email);
-    console.log("Password:", password);
-
     const userInstance = new User(null, password, null, null, email, null, null, null);    
     const user = await userInstance.getUserByEmail();
 
@@ -69,7 +66,27 @@ exports.sign_up_post = (req, res) => {
 
     const user = new User(null, hash, first_name, last_name, email, null, null, null);    
 
-    user.create().then(() => {
+    user.addUser().then(() => {
         res.redirect('/');
+    });
+}
+
+/* GET handler for profile page */
+exports.user_profile = async (req, res) => {
+    const name = req.params['name'];
+    const user = await User.getUserByName(name);
+    const fullName = user.first + " " + user.last;
+
+    res.render('template', {
+        locals: {
+            title: fullName + " Profile",
+            is_logged_in: req.session.is_logged_in,
+            userName: fullName,
+            user: user
+        },
+        partials: {
+            partial: 'partial-user-profile',
+            nav: 'partial-nav'
+        }
     });
 }

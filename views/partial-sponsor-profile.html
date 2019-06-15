@@ -1,0 +1,25 @@
+<div class="columns">
+    <div class="column">
+        <h2 class="title has-text-centered">${name}</h2>
+        <h4 class="subtitle has-text-centered">Educational Sponsor</h4>
+        <figure class="image is-32x32">
+                <img class="is-rounded" src="${photo}">
+        </figure>
+    </div>
+    <div class="column">
+        <table class="table is-striped is-hoverable is-fullwidth">
+            <thead>
+                <tr>
+                    <td class="has-text-centered has-text-weight-bold">Children</td>
+                </tr>
+            </thead>
+            <tbody>
+                ${sponsees.map(sponsee =>
+                `<tr>
+                        <td class="has-text-centered">${sponsee}</td>
+                </tr>`
+                ).join('')}
+            </tbody>
+        </table>
+    </div>
+</div>

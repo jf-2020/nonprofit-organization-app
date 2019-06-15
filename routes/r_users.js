@@ -7,8 +7,9 @@ const UserController = require('../controllers/c_users');
 router.get('/login', UserController.login_get);
 router.get('/logout', UserController.logout_get);
 router.get('/signup', UserController.sign_up_get);
+router.get('/:name', UserController.user_profile);
 
-// POST Routes
+/* POST Routes */
 router.post('/signup', UserController.sign_up_post);
 router.post('/login', UserController.login_post);
 
