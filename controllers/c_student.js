@@ -10,7 +10,7 @@ exports.getAllStudents = async (req, res) => {
             title: 'Students List',
             userName: req.session.first_name,
             is_logged_in: req.session.is_logged_in,
-            items: arrOfStudents
+            studentList: arrOfStudents
         },
         partials: {
             partial: 'partial-studentsList',
