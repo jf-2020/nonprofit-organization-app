@@ -11,5 +11,22 @@
                 <td>${storeList.store_id}</td>
                 <td>${storeList.name}</td>
                 <td>${storeList.location}</td>
-            </tr>            
+            </tr>
+        <thead>
+        <h3>List of Supplies Available</h3>
+            <tr>
+                <th>Supply ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity in Stock</th>
+            </tr>
+        </thead>
+        ${suppliesList.map(item =>
+            `<tr>
+                <td>${item.supply_id}</td>
+                <td>${item.supply_name}</td>
+                <td>${item.unit_cost}</td>  
+                <td>${item.quantity}</td>         
+            </tr>`
+            ).join('')}               
     </table>

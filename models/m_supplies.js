@@ -9,9 +9,6 @@ class Supplies {
         this.store_id = store_id;
         this.grade_id = grade_id;
     }
-// function to be able to get all the items (supply_id, supply_name, unit_cost, quantity), by store_id
-// function to get all that by student_id 
-// function to get all that by grade_id
 
     static async getAllItemsByStoreID(storeSelected) {
         try {

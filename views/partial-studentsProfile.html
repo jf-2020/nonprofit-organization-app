@@ -20,6 +20,24 @@
                 <td>${studentList.age}</td>
                 <td>${studentList.sponsorship}</td>
                 <td>${studentList.money}</td>
-            </tr>            
+            </tr>
+            <h3>List of Supplies in Account For ${studentList.first_name} ${studentList.last_name}</h3>
+        <thead>  
+            <tr>
+                <th>Supply ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity in Stock</th>
+            </tr>
+        </thead>
+        ${suppliesList.map(item =>
+            `<tr>
+                <td>${item.supply_id}</td>
+                <td>${item.supply_name}</td>
+                <td>${item.unit_cost}</td>  
+                <td>${item.quantity}</td>         
+            </tr>`
+            ).join('')}               
+    </table>                        
     </table>
 </section>
