@@ -14,8 +14,8 @@
                     <img class="is-rounded" src="${sponsor['Photo']}">
                 </figure>
             </td>
-            <td>${sponsor["First Name"]}</td>
-            <td>${sponsor["Last Name"]}</td>
+            <td><a href="/sponsors/${sponsor['First Name']}-${sponsor['Last Name']}">${sponsor['First Name']}</a></td>
+            <td><a href="/sponsors/${sponsor['First Name']}-${sponsor['Last Name']}">${sponsor['Last Name']}</a></td>
             <td>${sponsor["Email"]}</td>
             <td>${sponsor["Phone"]}</td>
             <td>${sponsor["Donation"]}</td>
@@ -24,4 +24,6 @@
         </tr>`
         ).join('')}            
     </table>
+    <a class="button is-primary" href="/sponsors/add-sponsor">Add Sponsor</a>
+    <a class="button is-primary" href="/sponsors/delete-sponsor">Delete Sponsor</a>
 </section>

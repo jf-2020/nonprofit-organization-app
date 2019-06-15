@@ -1,7 +1,8 @@
 const db = require('./conn.js');
 
 class Students {
-    constructor(student_id, first_name, last_name, age, sponsorship, grades_id , money, families_id, sponsors_id){
+    constructor(student_id, first_name, last_name, age, sponsorship, grades_id , money, families_id, sponsors_id) 
+    {
         this.student_id = student_id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -13,39 +14,33 @@ class Students {
         this.sponsors_id = sponsors_id;
     }
 
-    static async getAllStudents() {
+    static async getAllStudentIDs() {
         try {
             const response = await db.any(`
-                                    SELECT
-                                        student_id as "Student ID", 
-                                        first_name as "First Name",
-                                        last_name as "Last Name",
-                                        age as "Age",
-                                        sponsorship as "Sponsorship Level",
-                                        money as "Money"
-                                    FROM
-                                        students`);
+                SELECT
+                    student_id
+                FROM
+                    students
+            `);
             return response;
         } catch(error) {
+            console.log("Error:", error.message);
             return error.message;
         }
     }
 
-    static async getById(id) {
-        const query = `SELECT
-                            first_name as "First",
-                            last_name as "Last",
-                            age as "Age",
-                            sponsorship as "Sponsorship Level",
-                            money as "Money"
-                        FROM
-                            students
-                        WHERE
-                            student_id = ${id}`
-                      ;
+    static async getAllStudents() {
         try {
-            const response = await db.one(query);
-            console.log(`Student: ${response.First} ${response.Last} retrieved`);
+            const response = await db.any(`
+                SELECT
+                    student_id as "Student ID",
+                    first_name as "First Name",
+                    last_name as "Last Name",
+                    age as "Age",
+                    sponsorship as "Sponsorship Level",
+                    money as "Money"
+                FROM 
+                    students`);
             return response;
         } catch(error) {
             console.log("Error:", error.message);
@@ -71,13 +66,18 @@ class Students {
 
     static async getOneStudent(student_id) {
         try {
-            const response = await db.one(`SELECT student_id, first_name, last_name, age, sponsorship, money FROM students WHERE students.student_id = '${student_id}'`);
+            const response = await db.one(`SELECT 
+                                                student_id, first_name, last_name, age, sponsorship, money 
+                                            FROM 
+                                                students
+                                            WHERE
+                                                student_id = '${student_id}'`);
             return response;
         } catch(err) {
             return err.message;
         }
     }
-
 }
 
 module.exports = Students;
+

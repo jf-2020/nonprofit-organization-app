@@ -6,7 +6,7 @@ CREATE TABLE users (
 	email 			VARCHAR(200)				,
 	phone 			VARCHAR(200)				,
 	photo 			VARCHAR(500)				,
-	user_type 		INT
+	user_type 		VARCHAR(30)
 );
 
 CREATE TABLE families (
@@ -41,13 +41,6 @@ CREATE TABLE grades (
 	school_id 	INT 			REFERENCES schools (school_id)
 );
 
-CREATE TABLE links (
-    link_id         SERIAL             PRIMARY KEY  ,
-    stores_id       INT                             ,
-    students_id     INT                             ,
-    families_id     INT
-);
-
 CREATE TABLE sponsors (
 	sponsor_id 			SERIAL 			PRIMARY KEY							,
 	first_name 			VARCHAR(255)										,
@@ -55,10 +48,10 @@ CREATE TABLE sponsors (
 	email 				VARCHAR(500)										,
 	phone 				VARCHAR(50)											,
 	money_donated 		DECIMAL(8,2)										,
-	date_paid 			DATE												,
-	date_deposited 		DATE												,
+	date_paid 			VARCHAR(20)											,
+	date_deposited 		VARCHAR(20)											,
 	photo 				VARCHAR(200)										,
-	link_id				INT				REFERENCES links (link_id)
+	link_id				INT
 );
 
 CREATE TABLE students (
@@ -69,7 +62,7 @@ CREATE TABLE students (
 	sponsorship 	VARCHAR(30)											,
 	grades_id 		INT													,
 	money 			DECIMAL(8,2)										,
-	link_id 		INT 			REFERENCES links (link_id)
+	link_id 		INT
 );
 
 CREATE TABLE supplies (
@@ -77,5 +70,13 @@ CREATE TABLE supplies (
 	product_name 	VARCHAR(100)									,
 	price 			DECIMAL(8,2)									,
 	quantity 		INT												,
-	link_id 		INT 			REFERENCES links (link_id)
+	link_id 		INT
+);
+
+CREATE TABLE links (
+    link_id         SERIAL				PRIMARY KEY							,
+    stores_id       INT                             						,
+    students_id     INT					REFERENCES students (student_id)	,
+    families_id     INT					REFERENCES families (family_id)		,
+	sponsors_id		INT					REFERENCES sponsors (sponsor_id)
 );
