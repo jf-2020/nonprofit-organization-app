@@ -18,7 +18,7 @@ class Students {
         try {
             const queryAll = `
             SELECT * FROM 
-                link l, 
+                links l, 
                 students s, 
                 families f 
             WHERE 
@@ -43,11 +43,11 @@ class Students {
             FROM  
                 students,
                 families,
-                link
+                links
             WHERE
-                students.student_id = link.students_id
+                students.student_id = links.students_id
                 AND
-                link.families_id = '${family_id}'
+                links.families_id = '${family_id}'
                 AND 
                 families.family_id = '${family_id}'`;
 
