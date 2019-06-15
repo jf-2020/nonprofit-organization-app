@@ -1,5 +1,45 @@
 ${!!is_logged_in ? `
-    <h2>Hello ${userName}.</h2>    
+    <h2>Hello ${userName}.</h2> 
+    <div class="tile is-ancestor">
+            <div class="tile is-20 is-horizontal is-parent">
+                <div class="tile is-child box">
+                    <p class="title"><a href="/students">Students</a></p>
+                </div>
+                <div class="tile is-child box">
+                    <p class="title"><a href="/sponsors">Sponsors</a></p>
+                </div>
+                <div class="tile is-child box">
+                    <p class="title"><a href="/stores">Stores</a></p>
+                </div>
+                <div class="tile is-child box">
+                    <p class="title"><a href="/grades">Grades</a></p>
+                </div>
+                <div class="tile is-child box">
+                    <p class="title"><a href="/families">Families</a></p>
+                </div>
+
+            </div>
+    </div>  
 ` : `
     <h2>Would you like to be a part of SCP?</h2>
+    <div class="tile is-ancestor">
+            <div class="tile is-20 is-horizontal is-parent">
+                <div class="tile is-child box">
+                    <p class="title"><a href="/students">Students</a></p>
+                </div>
+                <div class="tile is-child box">
+                    <p class="title"><a href="/sponsors">Sponsors</a></p>
+                </div>
+                <div class="tile is-child box">
+                    <p class="title"><a href="/stores">Stores</a></p>
+                </div>
+                <div class="tile is-child box">
+                    <p class="title"><a href="/grades">Grades</a></p>
+                </div>
+                <div class="tile is-child box">
+                    <p class="title"><a href="/families">Families</a></p>
+                </div>
+
+            </div>
+    </div>
 `}
