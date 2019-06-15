@@ -1,8 +1,10 @@
 const Students = require('../models/m_student');
+const Family = require('../models/m_family');
 
 exports.getAllStudents = async (req, res) => {
-    const arrOfStudents = await Students.getAllStudents();
-    
+    let arrOfStudents = await Students.getAllStudents();
+    console.log(arrOfStudents);
+
     res.render('template', {
         locals: {
             title: 'Students List',
@@ -16,10 +18,11 @@ exports.getAllStudents = async (req, res) => {
         }
     });
 };
+
+
 exports.getOneStudent = async (req, res) => {
     const student_id = req.params.student;
-    const arrOfStudents = await Students.getOneStudent(student_id);
-    console.log(arrOfStudents);
+    const arrOfStudents = await Students.getOneStudent(student_id);   
 
     res.render('template', {
         locals: {

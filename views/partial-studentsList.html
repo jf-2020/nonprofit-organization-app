@@ -8,17 +8,19 @@
                 <th>Age</th>
                 <th>Sponsored</th>
                 <th>Money</th>
+                <th>Family</th>
             </tr>
         </thead>
-    ${studentList.map(kid =>
-        `<tr>
-            <td>${kid.student_id}</td>
-            <td><a href="/students/${kid.student_id}">${kid.first_name}</a></td>
-            <td>${kid.last_name} </td>
-            <td>${kid.age} </td>
-            <td>${kid.sponsorship} </td>
-            <td>${kid.money} </td>
-        </tr>`
-        ).join('')}            
+        ${studentList.map(kid =>
+            `<tr>
+                <td>${kid.student_id}</td>
+                <td><a href="/students/${kid.student_id}">${kid.first_name}</a></td>
+                <td>${kid.last_name}</td>
+                <td>${kid.age}</td>
+                <td>${kid.sponsorship}</td>
+                <td>${kid.money}</td>
+                <td><a href="/families/${kid.families_id}">${kid.name}</a></td>
+            </tr>
+            `).join('')}        
     </table>
 </section>

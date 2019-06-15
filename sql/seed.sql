@@ -1,26 +1,26 @@
 --create some students
 INSERT INTO students (student_id,first_name,last_name,age,sponsorship,grades_id,money,link_id)
 VALUES
-(1,'Wells','Esby',12,'partial',null,51.21,null),
-(2,'Kristine','Camden',8,'full',null,62.93,null),
-(3,'Ansel','Brewett',8,'full',null,97.48,null),
-(4,'Fanny','Sidebottom',8,'partial',null,73.28,null),
-(5,'Kiel','Southcomb',9,'partial',null,57.74,null),
-(6,'Bernadette','Yacobsohn',12,'partial',null,61.72,null),
-(7,'Niels','Blabie',13,'partial',null,47.37,null),
-(8,'Kaitlin','Whifen',17,'partial',null,79.6,null),
-(9,'Westbrooke','Steabler',3,'partial',null,26.56,null),
-(10,'Heall','Forstall',10,'full',null,18.27,null),
-(11,'Menard','Creelman',2,'full',null,83.52,null),
-(12,'Cassaundra','Sayre',4,'full',null,46.37,null),
-(13,'Kora','Dovidaitis',10,'full',null,3.12,null),
-(14,'Bibby','Kiezler',16,'full',null,29.93,null),
-(15,'Beverlie','Altimas',3,'full',null,99.98,null),
-(16,'Kendell','Nester',16,'partial',null,14.62,null),
-(17,'Hanan','Behnecke',12,'partial',null,10.96,null),
-(18,'Honoria','Iacapucci',3,'partial',null,42.49,null),
-(19,'Nestor','Daine',17,'full',null,27.49,null),
-(20,'Rosene','Kenward',11,'partial',null,97.26,null);
+(1,'Wells','Esby',12,'partial',1,51.21,23),
+(2,'Kristine','Camden',8,'full',3,62.93,45),
+(3,'Ansel','Brewett',8,'full',4,97.48,56),
+(4,'Fanny','Sidebottom',8,'partial',2,73.28,67),
+(5,'Kiel','Southcomb',9,'partial',2,57.74,1),
+(6,'Bernadette','Yacobsohn',12,'partial',5,61.72,2),
+(7,'Niels','Blabie',13,'partial',7,47.37,3),
+(8,'Kaitlin','Whifen',17,'partial',9,79.6,4),
+(9,'Westbrooke','Steabler',3,'partial',10,26.56,5),
+(10,'Heall','Forstall',10,'full',9,18.27,6),
+(11,'Menard','Creelman',2,'full',3,83.52,7),
+(12,'Cassaundra','Sayre',4,'full',4,46.37,8),
+(13,'Kora','Dovidaitis',10,'full',8,3.12,9),
+(14,'Bibby','Kiezler',16,'full',7,29.93,10),
+(15,'Beverlie','Altimas',3,'full',9,99.98,11),
+(16,'Kendell','Nester',16,'partial',1,14.62,12),
+(17,'Hanan','Behnecke',12,'partial',5,10.96,13),
+(18,'Honoria','Iacapucci',3,'partial',6,42.49,14),
+(19,'Nestor','Daine',17,'full',8,27.49,15),
+(20,'Rosene','Kenward',11,'partial',9,97.26,16);
 
 --create some users
 INSERT INTO users
@@ -131,3 +131,112 @@ insert into families (family_id, name, size, location, money, church_affiliation
 insert into families (family_id, name, size, location, money, church_affiliation) values (98, 'Lewisham', 1, '66472 Dunning Road', 827.41, 'regular member');
 insert into families (family_id, name, size, location, money, church_affiliation) values (99, 'Hedingham', 8, '063 Browning Alley', 325.64, 'regular member');
 insert into families (family_id, name, size, location, money, church_affiliation) values (100, 'MacCleod', 20, '56168 Express Point', 471.78, 'regular member');
+
+-- data for links table
+insert into links (link_id, stores_id, students_id, families_id) values (1, 5, 17, 49);
+insert into links (link_id, stores_id, students_id, families_id) values (2, 3, 15, 36);
+insert into links (link_id, stores_id, students_id, families_id) values (3, 4, 16, 63);
+insert into links (link_id, stores_id, students_id, families_id) values (4, 3, 19, 64);
+insert into links (link_id, stores_id, students_id, families_id) values (5, 3, 18, 25);
+insert into links (link_id, stores_id, students_id, families_id) values (6, 4, 2, 67);
+insert into links (link_id, stores_id, students_id, families_id) values (7, 1, 10, 56);
+insert into links (link_id, stores_id, students_id, families_id) values (8, 4, 4, 20);
+insert into links (link_id, stores_id, students_id, families_id) values (9, 4, 12, 72);
+insert into links (link_id, stores_id, students_id, families_id) values (10, 5, 16, 52);
+insert into links (link_id, stores_id, students_id, families_id) values (11, 5, 14, 24);
+insert into links (link_id, stores_id, students_id, families_id) values (12, 4, 2, 56);
+insert into links (link_id, stores_id, students_id, families_id) values (13, 5, 8, 41);
+insert into links (link_id, stores_id, students_id, families_id) values (14, 3, 11, 34);
+insert into links (link_id, stores_id, students_id, families_id) values (15, 3, 15, 37);
+insert into links (link_id, stores_id, students_id, families_id) values (16, 5, 11, 90);
+insert into links (link_id, stores_id, students_id, families_id) values (17, 1, 15, 78);
+insert into links (link_id, stores_id, students_id, families_id) values (18, 4, 9, 76);
+insert into links (link_id, stores_id, students_id, families_id) values (19, 1, 14, 74);
+insert into links (link_id, stores_id, students_id, families_id) values (20, 5, 15, 23);
+insert into links (link_id, stores_id, students_id, families_id) values (21, 2, 7, 84);
+insert into links (link_id, stores_id, students_id, families_id) values (22, 4, 20, 44);
+insert into links (link_id, stores_id, students_id, families_id) values (23, 4, 2, 13);
+insert into links (link_id, stores_id, students_id, families_id) values (24, 2, 8, 34);
+insert into links (link_id, stores_id, students_id, families_id) values (25, 5, 6, 40);
+insert into links (link_id, stores_id, students_id, families_id) values (26, 3, 13, 42);
+insert into links (link_id, stores_id, students_id, families_id) values (27, 3, 13, 21);
+insert into links (link_id, stores_id, students_id, families_id) values (28, 3, 19, 19);
+insert into links (link_id, stores_id, students_id, families_id) values (29, 5, 10, 44);
+insert into links (link_id, stores_id, students_id, families_id) values (30, 1, 15, 17);
+insert into links (link_id, stores_id, students_id, families_id) values (31, 5, 5, 82);
+insert into links (link_id, stores_id, students_id, families_id) values (32, 4, 5, 78);
+insert into links (link_id, stores_id, students_id, families_id) values (33, 3, 16, 95);
+insert into links (link_id, stores_id, students_id, families_id) values (34, 3, 12, 9);
+insert into links (link_id, stores_id, students_id, families_id) values (35, 5, 9, 52);
+insert into links (link_id, stores_id, students_id, families_id) values (36, 5, 9, 49);
+insert into links (link_id, stores_id, students_id, families_id) values (37, 3, 9, 29);
+insert into links (link_id, stores_id, students_id, families_id) values (38, 5, 3, 4);
+insert into links (link_id, stores_id, students_id, families_id) values (39, 3, 8, 10);
+insert into links (link_id, stores_id, students_id, families_id) values (40, 1, 19, 75);
+insert into links (link_id, stores_id, students_id, families_id) values (41, 1, 5, 50);
+insert into links (link_id, stores_id, students_id, families_id) values (42, 3, 13, 35);
+insert into links (link_id, stores_id, students_id, families_id) values (43, 3, 4, 53);
+insert into links (link_id, stores_id, students_id, families_id) values (44, 1, 6, 83);
+insert into links (link_id, stores_id, students_id, families_id) values (45, 2, 1, 47);
+insert into links (link_id, stores_id, students_id, families_id) values (46, 1, 5, 44);
+insert into links (link_id, stores_id, students_id, families_id) values (47, 4, 2, 70);
+insert into links (link_id, stores_id, students_id, families_id) values (48, 3, 13, 16);
+insert into links (link_id, stores_id, students_id, families_id) values (49, 2, 12, 46);
+insert into links (link_id, stores_id, students_id, families_id) values (50, 1, 18, 38);
+
+--Update the schools table
+insert into schools (school_id, name, address) values (8, 'Pedagogical University of Slupsk', '8 Monument Avenue');
+insert into schools (school_id, name, address) values (9, 'Oduduwa University', '2 Commercial Junction');
+insert into schools (school_id, name, address) values (6, 'Al-Birony University', '3 Parkside Drive');
+insert into schools (school_id, name, address) values (1, 'Ohio University - Chillicothe', '4931 Mallory Point');
+insert into schools (school_id, name, address) values (3, 'Estonian Academy of Arts', '7 Milwaukee Road');
+insert into schools (school_id, name, address) values (1, 'University of California, Hastings College of Law', '317 Oriole Avenue');
+insert into schools (school_id, name, address) values (7, 'Universitas Mulawarman', '2 Alpine Circle');
+insert into schools (school_id, name, address) values (3, 'Bule Hora  University', '124 Blue Bill Park Place');
+insert into schools (school_id, name, address) values (9, 'Komsomolsk-on-Amur State Technical University', '04 La Follette Parkway');
+insert into schools (school_id, name, address) values (10, 'University of Alabama - Huntsville', '61 Grayhawk Plaza');
+
+--update items table
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (1, 1, 1, 0, 1, 1, 1, 0, 0, 1);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (2, 0, 1, 0, 1, 1, 1, 1, 0, 1);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (3, 0, 1, 1, 1, 0, 1, 1, 0, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (4, 1, 1, 1, 0, 0, 1, 1, 0, 1);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (5, 1, 0, 0, 1, 0, 1, 0, 0, 1);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (6, 1, 0, 0, 0, 0, 1, 0, 1, 1);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (7, 0, 0, 1, 0, 0, 0, 0, 1, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (8, 1, 1, 1, 1, 0, 1, 0, 1, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (9, 1, 1, 1, 0, 1, 1, 1, 1, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (10, 1, 0, 0, 0, 0, 1, 1, 0, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (11, 0, 0, 0, 0, 1, 1, 0, 1, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (12, 1, 1, 0, 0, 1, 0, 0, 1, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (13, 0, 1, 0, 0, 0, 1, 1, 1, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (14, 0, 1, 0, 0, 1, 0, 1, 1, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (15, 1, 1, 1, 1, 0, 1, 0, 1, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (16, 0, 0, 0, 1, 1, 1, 0, 0, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (17, 0, 0, 0, 0, 1, 0, 1, 0, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (18, 0, 0, 0, 0, 0, 1, 0, 1, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (19, 1, 0, 1, 1, 1, 1, 0, 1, 1);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (20, 1, 0, 0, 0, 0, 1, 1, 1, 1);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (21, 0, 0, 0, 1, 1, 0, 0, 0, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (22, 1, 1, 0, 0, 0, 1, 1, 0, 0);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (23, 1, 1, 0, 0, 0, 1, 0, 1, 1);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (24, 1, 0, 0, 1, 0, 0, 0, 0, 1);
+insert into items (item_list_id, pencils, notebooks, markers, calculators, highlighters, stickers, rulers, paper, pens) values (25, 1, 1, 0, 0, 1, 0, 1, 0, 1);
+--Update the grades table
+insert into grades (grade_id, level, items_id, school_id) values (1, 'Kinder', 6, 8);
+insert into grades (grade_id, level, items_id, school_id) values (2, 'Prim 1', 22, 5);
+insert into grades (grade_id, level, items_id, school_id) values (3, 'Prim 2', 7, 6);
+insert into grades (grade_id, level, items_id, school_id) values (4, 'Prim 3', 11, 8);
+insert into grades (grade_id, level, items_id, school_id) values (5, 'Prim 4', 10, 6);
+insert into grades (grade_id, level, items_id, school_id) values (6, 'Prim 5', 7, 8);
+insert into grades (grade_id, level, items_id, school_id) values (7, 'Prim 6', 17, 4);
+insert into grades (grade_id, level, items_id, school_id) values (8, 'Sec 1', 5, 4);
+insert into grades (grade_id, level, items_id, school_id) values (9, 'Sec 2', 9, 9);
+insert into grades (grade_id, level, items_id, school_id) values (10, 'Sec 3', 23, 5);
+insert into grades (grade_id, level, items_id, school_id) values (11, 'Sec 4', 10, 5);
+insert into grades (grade_id, level, items_id, school_id) values (12, 'TEBA 1', 4, 4);
+insert into grades (grade_id, level, items_id, school_id) values (13, 'TEBA 2', 16, 7);
+insert into grades (grade_id, level, items_id, school_id) values (14, 'TEBA 3', 25, 10);
+insert into grades (grade_id, level, items_id, school_id) values (15, 'TEBA 4', 24, 7);
+
+
