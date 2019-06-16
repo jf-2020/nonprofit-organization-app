@@ -205,6 +205,8 @@ class Students {
             return response;
         } catch(error) {
             console.log("Error:", error.message);
+        }
+    }
 
     static async getStudentCountbyFamilyId(family_id) {
         try {
