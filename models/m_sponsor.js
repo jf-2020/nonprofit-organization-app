@@ -20,6 +20,9 @@ class Sponsor {
     }
 
     static async getSponsorIdByName(name) {
+        // given the first name of a sponsor, search through the
+        // sponsors table & return their unique sponsor_id
+        
         try {
             const response = await db.one(`
                                 SELECT
