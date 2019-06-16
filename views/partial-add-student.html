@@ -1,4 +1,4 @@
-<form action="/users/signup" method="POST" class="form clearfix">
+<form action="/students/add-student" method="POST" class="form clearfix">
     <div class="field">
         <div class="control">
             <label class="label">First Name
@@ -15,17 +15,25 @@
     </div>
     <div class="field">
         <div class="control">
-            <label class="label">Email
-                <input class="input" name="email" type="email" placeholder="Email"/>
+            <label class="label">Age
+                <input class="input" name="age" type="number" placeholder="Age"/>
             </label>
         </div>
     </div>
     <div class="field">
         <div class="control">
-            <label class="label">Password
-                <input class="input" name="password" type="password" placeholder="Password"/>
+            <label class="label">Sponsorhip Level
+                <input class="input" name="sponsorship" type="text" placeholder="Sponsorhip Level"/>
             </label>
         </div>
     </div>
-    <button class="button is-primary" type="submit">Register</button>
+    <div class="field">
+        <div class="control">
+            <label class="label">Money
+                <input class="input" name="money" type="number" step="0.01" placeholder="$"/>
+            </label>
+        </div>
+    </div>
+
+    <button class="button is-primary" type="submit">Add Student</button>
 </form>
