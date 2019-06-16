@@ -124,11 +124,17 @@ class Sponsor {
     }
 
     async addSponsor() {
+        // in order to avoid any issues with seeding of db data, to add in a
+        // sponsor with an appropriate unique id, it's necessary to first
+        // get the maximum sponsor_id and then add new sponsor with serial
+        // == maxId+1 (similar to the situation with add student)
+        const maxId = await Sponsor.getMaxSponsorId();
+
         try {
-            console.log("here");
             const response = await db.one(`
                 INSERT INTO sponsors
                     (   
+                        sponsor_id,
                         first_name,
                         last_name,
                         email,
@@ -140,7 +146,7 @@ class Sponsor {
                         link_id
                     )
                  VALUES
-                    ( $1, $2, $3, $4, $5, $6, $7, $8, null )
+                    ( ${maxId+1}, $1, $2, $3, $4, $5, $6, $7, $8, null )
                 RETURNING
                     first_name, last_name
             `, [this.first_name, this.last_name, this.email,
@@ -196,6 +202,19 @@ class Sponsor {
             console.log("THis is the sponsor by student id   : ", response);
             return response;
         } catch(error) {
+            return error.message;
+        }
+    }
+
+    static async getMaxSponsorId() {
+        // search through sponsors tables and return maximum student_id value
+        try {
+            const response = await db.one(`
+                    SELECT max(sponsor_id) FROM sponsors;
+            `);
+            return response.max;
+        } catch(error) {
+            console.log("Error:", error.message);
             return error.message;
         }
     }

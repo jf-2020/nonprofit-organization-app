@@ -176,7 +176,6 @@ class Students {
     static async getStudentIdByName(first_name, last_name) {
         // given a first name & last name, find the corresponding student
         // in the students table & return their unique student_id
-
         try {
             const response = await db.one(`
                                 SELECT
