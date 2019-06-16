@@ -33,7 +33,9 @@ class Students {
     static async getAllStudents() {
         try {
             const queryAll = `
-            SELECT * FROM 
+            SELECT 
+                *
+            FROM 
                 links l, 
                 students s, 
                 families f 
@@ -125,6 +127,28 @@ class Students {
             return error.message;
         }
     }
+
+    static async getTotalAccountForFamily(family_id) {
+        try {
+            const response = await db.one(`
+            SELECT 
+                SUM(students.money) 
+            FROM 
+                students, 
+                families, 
+                links 
+            WHERE 
+                students.student_id = links.students_id 
+                AND links.families_id = '${family_id}' 
+                AND families.family_id = '${family_id}'
+            `);
+            console.log(response);
+            return response;
+        } catch(error) {
+            return error.message;
+        }
+    }
+
 }
 
 module.exports = Students;

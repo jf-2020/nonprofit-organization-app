@@ -4,20 +4,16 @@
             <tr>
                 <th>Family ID</th>
                 <th>Name</th>
-                <th>Size</th>
                 <th>Location</th>
                 <th>Church Affiliation</th>
-                <th>How much is in their total account?</th>
             </tr>
         </thead>
     ${familyList.map(each =>
         `<tr>
             <td>${each.family_id}</td>
             <td><a href="/families/${each.family_id}">${each.name}</a></td>
-            <td>${each.size} </td>
             <td>${each.location} </td>
             <td>${each.church_affiliation} </td>
-            <td>${each.money} </td>
         </tr>`
         ).join('')}            
     </table>
