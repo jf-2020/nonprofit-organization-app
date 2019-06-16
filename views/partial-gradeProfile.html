@@ -11,5 +11,21 @@
                 <td>${gradeList.grade_id}</td>
                 <td>${gradeList.level}</td>
                 <td>${gradeList.name}</td>
-            </tr>            
-    </table>
+            </tr>
+            <h3>List of Supplies For ${gradeList.name} ${gradeList.level}</h3>
+            <tr>
+                <th>Supply ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity in Stock</th>
+            </tr>
+        </thead>
+        ${suppliesList.map(item =>
+            `<tr>
+                <td>${item.supply_id}</td>
+                <td>${item.supply_name}</td>
+                <td>${item.unit_cost}</td>  
+                <td>${item.quantity}</td>         
+            </tr>`
+            ).join('')}               
+    </table>            

@@ -1,4 +1,5 @@
 const Grades = require('../models/m_grade');
+const Supplies = require('../models/m_supplies');
 
 exports.getAllGrades = async (req, res) => {
     const arrOfGrades = await Grades.getAllGrades();
@@ -20,16 +21,16 @@ exports.getAllGrades = async (req, res) => {
 
 exports.getOneGrade = async (req, res) => {
     const grade_id = req.params.grade;
-    console.log("THis is the grade id #2   :    ", req.params);
     const oneGrade = await Grades.getOneGrade(grade_id);
-    console.log("THis is the grade id    :    ", grade_id);   
+    const allSupplies = await Supplies.getAllItemsByGradeID(grade_id);
 
     res.render('template', {
         locals: {
             title: 'Grade Profile',
             userName: req.session.first_name,
             is_logged_in: req.session.is_logged_in,
-            gradeList: oneGrade
+            gradeList: oneGrade,
+            suppliesList: allSupplies
         },
         partials: {
             partial: 'partial-gradeProfile',
