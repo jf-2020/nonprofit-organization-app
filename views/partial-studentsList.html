@@ -11,6 +11,7 @@
                 <th>Family</th>
             </tr>
         </thead>
+        <tbody>
         ${studentList.map(kid =>
             `<tr>
                 <td>${kid.student_id}</td>
@@ -21,7 +22,10 @@
                 <td>${kid.money}</td>
                 <td><a href="/families/${kid.families_id}">${kid.name}</a></td>
             </tr>
-            `).join('')}        
+            `).join('')}
+        </tbody>        
     </table>
+    <a class="button is-primary" href="/students/add-student">Add Student</a>
+    <a class="button is-primary" href="/students/delete-student">Delete Student</a>
 </section>
 

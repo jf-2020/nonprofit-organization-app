@@ -49,7 +49,6 @@ VALUES
 INSERT INTO families
 (family_id, name, size, location, money, church_affiliation)
 VALUES 
-
 (100,'MacCleod',20,'56168 Express Point',471.78,'regular member'),
 (99,'Hedingham',8,'063 Browning Alley',325.64,'regular member'),
 (98,'Lewisham',1,'66472 Dunning Road',827.41,'regular member'),
@@ -149,7 +148,8 @@ VALUES
 (4,'Bunney',10,'29 Rieder Street',657.5,'regular member'),
 (3,'Everett',22,'8 Nobel Park',623.08,'VBS'),
 (2,'Heffernan',18,'236 Clarendon Terrace',316.16,'VBS'),
-(1,'Colicot',14,'9459 Schmedeman Street',929.19,'regular member');
+(1,'Colicot',14,'9459 Schmedeman Street',929.19,'regular member'),
+(0, 'No Family', 0, 'Nowhere', 0, 'None'); 
 
 
 -- data for links table
