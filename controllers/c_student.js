@@ -5,7 +5,8 @@ const Grades = require('../models/m_grade');
 const Sponsors = require('../models/m_sponsor');
 
 exports.getAllStudents = async (req, res) => {
-    let arrOfStudents = await Students.getAllStudents();
+    const arrOfStudents = await Students.getAllStudents();
+    console.log("This is array of studentssss :    ", arrOfStudents);
 
     res.render('template', {
         locals: {

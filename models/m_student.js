@@ -35,8 +35,11 @@ class Students {
             FROM 
                 links l, 
                 students s, 
-                families f 
-            WHERE 
+                families f,
+                grades g 
+            WHERE
+                g.grade_id = s.grades_id
+                AND 
                 l.families_id = f.family_id 
                 AND
                 l.students_id = s.student_id`;

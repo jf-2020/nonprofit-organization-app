@@ -49,6 +49,26 @@ class Grades {
         }
     }
 
+    static async getAllGradesByStudent() {
+        try {
+            const response = await db.any(`
+            SELECT 
+                level
+            FROM
+                grades,
+                students
+            WHERE
+                grades.grade_id = students.grades_id
+            `);
+            return response; 
+        } catch(error) {
+            return error.message;
+        }
+    }
+
+
+  
+
 }
 
 module.exports = Grades;
