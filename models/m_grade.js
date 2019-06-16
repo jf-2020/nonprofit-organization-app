@@ -29,7 +29,6 @@ class Grades {
     }
 
     static async getOneGrade(id) {
-        console.log("First grade id    : ", id);
         try {
             const response = await db.one(`
             SELECT 

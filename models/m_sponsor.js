@@ -172,6 +172,30 @@ class Sponsor {
             return error.message;
         }
     }
+
+    static async getSponsorById(student_id) {
+        try {
+            const response = await db.one(`
+            SELECT 
+                sponsors.first_name,
+                sponsors.last_name 
+            FROM 
+                students, 
+                sponsors, 
+                links 
+            WHERE 
+                sponsors.sponsor_id = links.sponsors_id 
+                AND 
+                links.students_id = '${student_id}' 
+                AND 
+                students.student_id = '${student_id}';
+            `);
+            console.log("THis is the sponsor by student id   : ", response);
+            return response;
+        } catch(error) {
+            return error.message;
+        }
+    }
 }
 
 module.exports = Sponsor;
