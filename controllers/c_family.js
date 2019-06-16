@@ -22,15 +22,18 @@ exports.getOneFamily = async (req, res) => {
     const family_id = req.params.family;
     const arrOfFamilies = await Family.getOneFamily(family_id);
     const arrOfStudents = await Students.getAllStudentsByFamilyId(family_id);
-    console.log(arrOfStudents);
-
+    const numOfStudents = await Students.getStudentCountbyFamilyId(family_id);
+    const totalNum = await Students.getTotalAccountForFamily(family_id);
+    
     res.render('template', {
         locals: {
             title: 'Family Profile',
             userName: req.session.first_name,
             is_logged_in: req.session.is_logged_in,
             familyList: arrOfFamilies,
-            studentList: arrOfStudents
+            studentList: arrOfStudents,
+            studentNum: numOfStudents,
+            familyAccount: totalNum
         },
         partials: {
             partial: 'partial-familyProfile',
