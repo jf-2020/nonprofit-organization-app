@@ -1,4 +1,5 @@
 const Stores = require('../models/m_stores');
+const Supplies = require('../models/m_supplies');
 
 exports.getAllStores = async (req, res) => {
     let arrOfStores = await Stores.getAllStores();
@@ -19,14 +20,16 @@ exports.getAllStores = async (req, res) => {
 
 exports.getOneStore = async (req, res) => {
     const store_id = req.params.store;
-    const oneStore = await Stores.getOneStore(store_id);   
+    const oneStore = await Stores.getOneStore(store_id);
+    const storeSupplies = await Supplies.getAllItemsByStoreID(store_id);   
 
     res.render('template', {
         locals: {
             title: 'Store Profile',
             userName: req.session.first_name,
             is_logged_in: req.session.is_logged_in,
-            storeList: oneStore
+            storeList: oneStore,
+            suppliesList: storeSupplies
         },
         partials: {
             partial: 'partial-storeProfile',
