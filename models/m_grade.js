@@ -32,14 +32,12 @@ class Grades {
         try {
             const response = await db.one(`
             SELECT 
-                name,
-                level,
-                grade_id
+                *
             FROM
                 schools,
                 grades
             WHERE
-                schools.school_id = '${id}'
+                schools.school_id = grades.school_id
             AND 
                 grades.grade_id = '${id}'`);
             console.log(response);
@@ -49,22 +47,6 @@ class Grades {
         }
     }
 
-    static async getAllGradesByStudent() {
-        try {
-            const response = await db.any(`
-            SELECT 
-                level
-            FROM
-                grades,
-                students
-            WHERE
-                grades.grade_id = students.grades_id
-            `);
-            return response; 
-        } catch(error) {
-            return error.message;
-        }
-    }
 
 
   

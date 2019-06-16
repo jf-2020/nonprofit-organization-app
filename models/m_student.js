@@ -266,6 +266,25 @@ class Students {
             return error.message;
         }
     }
+
+    static async getStudentCountbyGradeId(grade_id) {
+        try {
+            const response = await db.one(`
+            SELECT 
+                COUNT (student_id) 
+            FROM 
+                students, 
+                grades 
+            WHERE 
+                students.grades_id = '${grade_id}' 
+                AND grades.grade_id = '${grade_id}'
+            `);
+            console.log(response);
+            return response;
+        } catch(error) {
+            return error.message;
+        }
+    }
 }
 
 module.exports = Students;
