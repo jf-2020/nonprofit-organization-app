@@ -14,7 +14,6 @@ CREATE TABLE families (
     name                     VARCHAR(50)                    ,
     size                     INT                            ,
     location                 VARCHAR(250)                ,
-    money                     DECIMAL(8,2)                ,
     church_affiliation         VARCHAR(100)
 );
 

@@ -35,8 +35,11 @@ class Students {
             FROM 
                 links l, 
                 students s, 
-                families f 
-            WHERE 
+                families f,
+                grades g 
+            WHERE
+                g.grade_id = s.grades_id
+                AND 
                 l.families_id = f.family_id 
                 AND
                 l.students_id = s.student_id`;
@@ -256,6 +259,25 @@ class Students {
                 students.student_id = links.students_id 
                 AND links.families_id = '${family_id}' 
                 AND families.family_id = '${family_id}'
+            `);
+            console.log(response);
+            return response;
+        } catch(error) {
+            return error.message;
+        }
+    }
+
+    static async getStudentCountbyGradeId(grade_id) {
+        try {
+            const response = await db.one(`
+            SELECT 
+                COUNT (student_id) 
+            FROM 
+                students, 
+                grades 
+            WHERE 
+                students.grades_id = '${grade_id}' 
+                AND grades.grade_id = '${grade_id}'
             `);
             console.log(response);
             return response;
