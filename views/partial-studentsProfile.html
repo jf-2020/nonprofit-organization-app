@@ -11,6 +11,7 @@
                 <th>How much is in their account?</th>
                 <th>Family Name</th>
                 <th>Sponsor</th>
+                <th>Student Photo</th>
                 
             </tr>
         </thead>
@@ -24,6 +25,11 @@
                 <td>${studentList.money}</td>
                 <td>${familyName.name}</td>
                 <td>${sponsorName.first_name} ${sponsorName.last_name}</td>
+                <td>
+                    <figure class="image is-32x32">
+                        <img class="is-rounded" src="${studentList.student_photo}">
+                    </figure>
+                </td>
             </tr>
             <h3>List of Supplies in Account For ${studentList.first_name} ${studentList.last_name}</h3>
         <thead>  

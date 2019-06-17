@@ -55,7 +55,8 @@ CREATE TABLE students (
     age             INT                                                    ,                
     sponsorship     VARCHAR(30)                                            ,
     grades_id         INT                                                    ,
-    money             DECIMAL(8,2)                                        
+    money             DECIMAL(8,2)                                          ,
+    student_photo     VARCHAR(200)                                      
 );
 
 CREATE TABLE supplies (
