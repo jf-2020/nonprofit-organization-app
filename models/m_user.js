@@ -87,6 +87,7 @@ class User {
                         WHERE
                             first_name = '${name}'
             `);
+            console.log("user:", response);
             return response;
         } catch(error) {
             console.log("Error:", error.message);
