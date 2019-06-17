@@ -93,3 +93,33 @@ exports.deleteStore_post = async (req, res) => {
         res.redirect('/stores');
     });
 };
+
+exports.addItemToStore_get = (req, res) => {
+
+    res.render('template', {
+        locals: {
+            title: 'Add Item to Store',
+            is_logged_in: req.session.is_logged_in,
+            first_name: req.session.first_name,
+            userName: req.session.first_name
+        },
+        partials: {
+            partial: 'partial-add-item-to-store',
+            nav: 'partial-nav'
+        }
+    })
+}
+
+exports.addItemToStore_post = async (req, res) => {
+    const data = req.body;
+    const supply_name = data.supply_name,
+          unit_cost = data.unit_cost,
+          quantity = data.quantity,
+          store_id = data.store_id;
+    
+    const store = new Stores(supply_name, unit_cost, quantity, store_id);
+    
+    store.addItemToStore().then(() => {
+        res.redirect('/stores');
+    });    
+};

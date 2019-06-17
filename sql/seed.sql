@@ -1,27 +1,27 @@
 --create dummy students
 INSERT INTO
-students (student_id, first_name, last_name, age, sponsorship, grades_id, money)
+students (student_id, first_name, last_name, age, sponsorship, grades_id, money, student_photo)
 VALUES
-(1,'Wells','Esby',12,'partial',1,51.21),
-(2,'Kristine','Camden',8,'full',2,62.93),
-(3,'Ansel','Brewett',8,'full',4,97.48),
-(4,'Fanny','Sidebottom',8,'partial',2,73.28),
-(5,'Kiel','Southcomb',9,'partial',5,57.74),
-(6,'Bernadette','Yacobsohn',12,'partial',5,61.72),
-(7,'Niels','Blabie',13,'partial',6,47.37),
-(8,'Kaitlin','Whifen',17,'partial',7,79.6),
-(9,'Westbrooke','Steabler',3,'partial',9,26.56),
-(10,'Heall','Forstall',10,'full',1,18.27),
-(11,'Menard','Creelman',2,'full',3,83.52),
-(12,'Cassaundra','Sayre',4,'full',7,46.37),
-(13,'Kora','Dovidaitis',10,'full',8,3.12),
-(14,'Bibby','Kiezler',16,'full',4,29.93),
-(15,'Beverlie','Altimas',3,'full',5,99.98),
-(16,'Kendell','Nester',16,'partial',2,14.62),
-(17,'Hanan','Behnecke',12,'partial',4,10.96),
-(18,'Honoria','Iacapucci',3,'partial',8,42.49),
-(19,'Nestor','Daine',17,'full',9,27.49),
-(20,'Rosene','Kenward',11,'partial',4,97.26);
+(1,'Wells','Esby',12,'partial',1,51.21,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(2,'Kristine','Camden',8,'full',2,62.93,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(3,'Ansel','Brewett',8,'full',4,97.48,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(4,'Fanny','Sidebottom',8,'partial',2,73.28,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(5,'Kiel','Southcomb',9,'partial',5,57.74,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(6,'Bernadette','Yacobsohn',12,'partial',5,61.72,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(7,'Niels','Blabie',13,'partial',6,47.37,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(8,'Kaitlin','Whifen',17,'partial',7,79.6,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(9,'Westbrooke','Steabler',3,'partial',9,26.56,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(10,'Heall','Forstall',10,'full',1,18.27,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(11,'Menard','Creelman',2,'full',3,83.52,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(12,'Cassaundra','Sayre',4,'full',7,46.37,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(13,'Kora','Dovidaitis',10,'full',8,3.12,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(14,'Bibby','Kiezler',16,'full',4,29.93,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(15,'Beverlie','Altimas',3,'full',5,99.98,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(16,'Kendell','Nester',16,'partial',2,14.62,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(17,'Hanan','Behnecke',12,'partial',4,10.96,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(18,'Honoria','Iacapucci',3,'partial',8,42.49,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(19,'Nestor','Daine',17,'full',9,27.49,'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff'),
+(20,'Rosene','Kenward',11,'partial',4,97.26, 'http://dummyimage.com/32x32.jpg/5fa2dd/ffffff');
 
 --create dummy sponsors
 INSERT INTO sponsors

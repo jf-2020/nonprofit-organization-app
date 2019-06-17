@@ -14,6 +14,12 @@ router.get('/add-store', storeController.addStore_get);
 /* POST route for adding a store */
 router.post('/add-store', storeController.addStore_post);
 
+/* GET page for adding an item to the store */
+router.get('/add-store-item', storeController.addItemToStore_get);
+
+/* POST route for adding an item to the store */
+router.post('/add-store-item', storeController.addItemToStore_post);
+
 /* GET stores page */
 router.get('/:store', storeController.getOneStore);
 router.get('/', storeController.getAllStores);

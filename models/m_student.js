@@ -10,6 +10,7 @@ class Students {
         this.sponsorship = sponsorship;
         this.grades_id = grades_id;
         this.money = money;
+        this.student_photo = student_photo;
     }
 
     static async getAllStudentIDs() {
@@ -56,7 +57,8 @@ class Students {
             const queryAll = `
             SELECT 
                 first_name,
-                last_name
+                last_name,
+                student_photo
             FROM  
                 students,
                 families,
@@ -69,7 +71,7 @@ class Students {
                 families.family_id = '${family_id}'`;
 
             const response = await db.any(queryAll);
-        
+            console.log(response);
             return response;
         }catch(error) {
             return error.message;
@@ -78,12 +80,19 @@ class Students {
 
     static async getOneStudent(student_id) {
         try {
-            const response = await db.one(`SELECT 
-                                                student_id, first_name, last_name, age, sponsorship, money 
-                                            FROM 
-                                                students
-                                            WHERE
-                                                student_id = '${student_id}'`);
+            const response = await db.one(`
+                SELECT 
+                    student_id, 
+                    first_name, 
+                    last_name, 
+                    age, 
+                    sponsorship, 
+                    money,
+                    student_photo 
+                FROM 
+                    students
+                WHERE
+                    student_id = '${student_id}'`);
             return response;
         } catch(error) {
             return error.message;
