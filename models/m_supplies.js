@@ -89,6 +89,31 @@ class Supplies {
         }
     }
 
+    static async addItemToStore() {
+            try {
+                const response = await db.one(`
+                    INSERT INTO supplies
+                        (
+                            supply_name,
+                            unit_cost,
+                            quantity,
+                            store_id
+                        )
+                    VALUES
+                        ($1, $2, $3, $4)
+                    RETURNING
+                        supply_name,
+                        unit_cost,
+                        quantity,
+                        store_id
+                `, [this.supply_name, this.unit_cost, this.quantity, this.store_id]);
+                console.log(`New item, ${response}`);
+                return response;
+        } catch(error) {
+            return error.message;
+        }
+    }
+
 }
 
 module.exports = Supplies;

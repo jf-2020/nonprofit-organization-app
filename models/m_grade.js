@@ -68,6 +68,26 @@ class Grades {
         }
     }
 
+    static async getSchoolonStudentId(id) {
+        try {
+            const response = await db.one(`
+            SELECT 
+                name 
+            FROM 
+                schools, 
+                grades, 
+                students 
+            WHERE 
+                students.student_id = '${id}' 
+                AND students.grades_id = grades.grade_id 
+                AND grades.school_id = schools.school_id;
+            `);
+            return response;
+        } catch(error) {
+            return error.message;
+        }
+    }
+
 }
 
 module.exports = Grades;

@@ -55,7 +55,8 @@ CREATE TABLE students (
     age             INT                                                    ,                
     sponsorship     VARCHAR(30)                                            ,
     grades_id         INT                                                    ,
-    money             DECIMAL(8,2)                                        
+    money             DECIMAL(8,2)                                          ,
+    student_photo     VARCHAR(200)                                      
 );
 
 CREATE TABLE supplies (
@@ -74,4 +75,12 @@ CREATE TABLE links (
     students_id     INT                    REFERENCES students (student_id)    ,
     families_id     INT                    REFERENCES families (family_id)        ,
     sponsors_id        INT                    REFERENCES sponsors (sponsor_id)
+);
+
+CREATE TABLE todo (
+    todo_id         SERIAL              PRIMARY KEY            ,
+    todo_text       VARCHAR(500)                                ,
+    due_date        VARCHAR(20)                                 ,
+    date_completed  VARCHAR(20)                                 ,
+    people_assigned VARCHAR(250)                                
 );

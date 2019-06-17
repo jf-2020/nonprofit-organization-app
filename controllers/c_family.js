@@ -24,7 +24,8 @@ exports.getOneFamily = async (req, res) => {
     const arrOfStudents = await Students.getAllStudentsByFamilyId(family_id);
     const numOfStudents = await Students.getStudentCountbyFamilyId(family_id);
     const totalNum = await Students.getTotalAccountForFamily(family_id);
-    
+    console.log(arrOfStudents);
+
     res.render('template', {
         locals: {
             title: 'Family Profile',
