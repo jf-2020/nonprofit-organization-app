@@ -24,6 +24,7 @@ exports.getOneGrade = async (req, res) => {
     const allSupplies = await Supplies.getAllItemsByGradeID(grade_id);   
     const studentCount = await Students.getStudentCountbyGradeId(grade_id);
     const grade = await Grades.getSchoolonGradeId(grade_id);
+    const totalCost = await Supplies.getTotalCostOfGrade(grade_id);
    
     res.render('template', {
         locals: {
@@ -32,7 +33,8 @@ exports.getOneGrade = async (req, res) => {
             is_logged_in: req.session.is_logged_in,
             suppliesList: allSupplies,
             count: studentCount,
-            gradeName: grade
+            gradeName: grade,
+            cost: totalCost
         },
         partials: {
             partial: 'partial-gradeProfile',
