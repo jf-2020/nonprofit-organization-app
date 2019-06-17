@@ -27,8 +27,7 @@ class Family {
                 name, 
                 size, 
                 location, 
-                church_affiliation, 
-                money 
+                church_affiliation  
             FROM 
                 families 
             WHERE 

@@ -32,16 +32,36 @@ class Grades {
         try {
             const response = await db.one(`
             SELECT 
-                name,
-                level,
-                grade_id
+                *
+            FROM
+                students,
+                grades
+            WHERE
+                students.student_id = '${id}'
+            AND
+                students.grades_id = grades.grade_id
+            `);
+
+            return response;
+        } catch(error) {
+            return error.message;
+        }
+    }
+
+    static async getSchoolonGradeId(id) {
+        try {
+            const response = await db.one(`
+            SELECT 
+                *
             FROM
                 schools,
                 grades
             WHERE
-                schools.school_id = '${id}'
-            AND 
-                grades.grade_id = '${id}'`);
+
+                grades.grade_id = '${id}' 
+            AND
+                grades.school_id = schools.school_id
+            `);
             return response;
         } catch(error) {
             return error.message;
