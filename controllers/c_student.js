@@ -29,6 +29,8 @@ exports.getOneStudent = async (req, res) => {
     const allSupplies = await Supplies.getAllItemsByStudentID(student_id);
     const gradeInfo = await Grades.getOneGrade(student_id);
     const sponsorInfo = await Sponsors.getSponsorById(student_id);
+    const schoolInfo = await Grades.getSchoolonStudentId(student_id);
+    console.log(gradeInfo);
 
     res.render('template', {
         locals: {
@@ -39,7 +41,8 @@ exports.getOneStudent = async (req, res) => {
             familyName: familyInfo,
             gradeLevel: gradeInfo,
             suppliesList: allSupplies,
-            sponsorName: sponsorInfo
+            sponsorName: sponsorInfo,
+            schoolName: schoolInfo
         },
         partials: {
             partial: 'partial-studentsProfile',

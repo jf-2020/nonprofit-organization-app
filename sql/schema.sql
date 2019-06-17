@@ -76,3 +76,11 @@ CREATE TABLE links (
     families_id     INT                    REFERENCES families (family_id)        ,
     sponsors_id        INT                    REFERENCES sponsors (sponsor_id)
 );
+
+CREATE TABLE todo (
+    todo_id         SERIAL              PRIMARY KEY            ,
+    todo_text       VARCHAR(500)                                ,
+    due_date        VARCHAR(20)                                 ,
+    date_completed  VARCHAR(20)                                 ,
+    people_assigned VARCHAR(250)                                
+);
