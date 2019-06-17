@@ -87,8 +87,28 @@ class User {
                         WHERE
                             first_name = '${name}'
             `);
-            console.log("user:", response);
             return response;
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+    }
+
+    async deleteUser() {
+        // get user's full name
+        const user = await User.getUserByName(this.first_name);
+        const first_name = user.first,
+              last_name = user.last;
+
+        // then delete from users table
+        try {
+            const response = await db.none(`
+                DELETE FROM users
+                WHERE
+                    first_name = '${first_name}'
+                AND
+                    last_name = '${last_name}'
+            `);
         } catch(error) {
             console.log("Error:", error.message);
             return error.message;
