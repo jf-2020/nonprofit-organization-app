@@ -70,6 +70,25 @@ class Supplies {
         }
     }
 
+    static async getTotalCostOfGrade(grade_id) {
+        try {
+            const response = await db.one(`
+            SELECT 
+                SUM(supplies.unit_cost) 
+            FROM 
+                supplies, 
+                grades 
+            WHERE 
+                grades.grade_id = '${grade_id}'  
+                AND supplies.grade_id = grades.grade_id
+            `);
+            console.log(response);
+            return response;
+        } catch(error) {
+            return error.message;
+        }
+    }
+
 }
 
 module.exports = Supplies;

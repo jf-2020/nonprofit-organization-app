@@ -5,7 +5,8 @@
                 <th>Grade ID</th>
                 <th>Level</th>
                 <th>School</th>
-                <th>How Many Students in ${gradeName.level}</th>                
+                <th>How Many Students in ${gradeName.level}</th>
+                <th>Average Cost for ${gradeName.level}</th>                
             </tr>
         </thead>
             <tr>
@@ -13,6 +14,7 @@
                 <td>${gradeName.level}</td>
                 <td>${gradeName.name}</td>
                 <td>${count.count}</td>
+                <td>${cost.sum}</td>
             </tr>
             <h3>List of Supplies For ${gradeName.name} ${gradeName.level}</h3>
             <tr>
