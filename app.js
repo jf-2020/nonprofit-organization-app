@@ -12,7 +12,8 @@ const indexRouter = require('./routes/r_index'),
       usersRouter = require('./routes/r_users'),
       familiesRouter = require('./routes/r_family'),
       gradesRouter = require('./routes/r_grades'),
-      storesRouter = require('./routes/r_stores');
+      storesRouter = require('./routes/r_stores'),
+      todoRouter = require('./routes/r_todo');
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use('/users', usersRouter);
 app.use('/families', familiesRouter);
 app.use('/stores', storesRouter);
 app.use('/grades', gradesRouter);
+app.use('/to-do-list', todoRouter);
 
 module.exports = app;
 
