@@ -73,15 +73,14 @@ exports.sign_up_post = (req, res) => {
 
 /* GET handler for profile page */
 exports.user_profile = async (req, res) => {
-    const name = req.params['name'];
+    const name = req.params['first'];
     const user = await User.getUserByName(name);
-    const fullName = user.first + " " + user.last;
 
     res.render('template', {
         locals: {
-            title: fullName + " Profile",
+            title: user.first + " Profile",
             is_logged_in: req.session.is_logged_in,
-            userName: fullName,
+            userName: [user.first, user.last],
             user: user
         },
         partials: {

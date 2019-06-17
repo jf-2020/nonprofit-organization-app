@@ -42,7 +42,6 @@ class Grades {
                 schools.school_id = '${id}'
             AND 
                 grades.grade_id = '${id}'`);
-            console.log(response);
             return response;
         } catch(error) {
             return error.message;
