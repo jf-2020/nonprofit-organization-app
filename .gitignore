@@ -2,7 +2,11 @@
 
 # Created by https://www.gitignore.io/api/macos,visualstudiocode,node
 # Edit at https://www.gitignore.io/?templates=macos,visualstudiocode,node
+
+### all operating systems ###
+# all local sessions
 sessions/
+
 ### macOS ###
 # General
 .DS_Store

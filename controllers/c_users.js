@@ -89,3 +89,36 @@ exports.user_profile = async (req, res) => {
         }
     });
 }
+
+/* GET handler delete user page */
+exports.delete_user_get = (req, res) => {
+    res.render('template', {
+        locals: {
+            title: 'Delete User',
+            is_logged_in: req.session.is_logged_in,
+            first_name: req.session.first_name,
+            userName: req.session.first_name
+        },
+        partials: {
+            partial: 'partial-delete-user',
+            nav: 'partial-nav'
+        }
+    })
+}
+
+/* POST handler for delete student page */
+exports.delete_user_post = async (req, res) => {
+    const first_name = req.params.first;
+
+    const user = new User(null, null, first_name, null,
+                            null, null, null, null,);
+
+    // first, delete the user
+    user.deleteUser().then(() => {
+        // then reproduce a logout to effect the appropriate result,
+        // that is, the user needs to be NOT ONLY deleted BUT ALSO
+        // logged out
+        req.session.destroy();
+        res.redirect('/');
+    });
+};
