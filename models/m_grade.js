@@ -57,11 +57,11 @@ class Grades {
                 schools,
                 grades
             WHERE
+
                 grades.grade_id = '${id}' 
             AND
                 grades.school_id = schools.school_id
             `);
-
             return response;
         } catch(error) {
             return error.message;
