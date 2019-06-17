@@ -34,22 +34,39 @@ class Grades {
             SELECT 
                 *
             FROM
-                schools,
+                students,
                 grades
             WHERE
-                schools.school_id = grades.school_id
-            AND 
-                grades.grade_id = '${id}'`);
-            console.log(response);
+                students.student_id = '${id}'
+            AND
+                students.grades_id = grades.grade_id
+            `);
+
             return response;
         } catch(error) {
             return error.message;
         }
     }
 
+    static async getSchoolonGradeId(id) {
+        try {
+            const response = await db.one(`
+            SELECT 
+                *
+            FROM
+                schools,
+                grades
+            WHERE
+                grades.grade_id = '${id}' 
+            AND
+                grades.school_id = schools.school_id
+            `);
 
-
-  
+            return response;
+        } catch(error) {
+            return error.message;
+        }
+    }
 
 }
 

@@ -5,21 +5,21 @@
                 <th>Grade ID</th>
                 <th>Level</th>
                 <th>School</th>
-                <th>How Many Students in ${gradeList.level}</th>                
+                <th>How Many Students in ${gradeName.level}</th>                
             </tr>
         </thead>
             <tr>
-                <td>${gradeList.grade_id}</td>
-                <td>${gradeList.level}</td>
-                <td>${gradeList.name}</td>
+                <td>${gradeName.grade_id}</td>
+                <td>${gradeName.level}</td>
+                <td>${gradeName.name}</td>
                 <td>${count.count}</td>
             </tr>
-            <h3>List of Supplies For ${gradeList.name} ${gradeList.level}</h3>
+            <h3>List of Supplies For ${gradeName.name} ${gradeName.level}</h3>
             <tr>
                 <th>Supply ID</th>
                 <th>Name</th>
                 <th>Price</th>
-                <th>Quantity in Stock</th>
+                <th>Quantity Needed for ${gradeName.level}</th>
             </tr>
         </thead>
         ${suppliesList.map(item =>
