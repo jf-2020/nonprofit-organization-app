@@ -1,0 +1,418 @@
+/* template formating */
+* {
+    box-sizing: border-box;
+}
+  
+html {
+    font-family: 'Quicksand', sans-serif;
+    margin: 0%;
+    min-height: 100%;
+}
+  
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #faebbf;
+    flex: 1 0 auto;
+    /* height: 100%; */
+}
+
+.footer-from-head{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* height: 100vh; */
+    height: calc(100vh - 1rem);
+}
+
+  
+.nav-wrapper {
+    margin: 0;
+    padding: 0;
+    background-color: #90D2C0;
+    border-bottom: 3px solid #699C84;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem;
+    background-color: #90D2C0;
+
+}
+  
+.nav-items {
+    display: flex;
+    flex-direction: row;
+}
+
+.index-buttons {
+      margin: 0 2rem;
+}
+
+.template-title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.partial-title {
+    display: flex;
+    align-self: center;
+    font-weight: bold;
+}
+
+.user-greeting {
+    text-align: center;
+}
+
+.template-container {
+    margin: 12px;
+}
+ 
+/* Index page styling */
+.index-table {
+    display: grid;
+    padding: .3rem;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: 50% auto;
+    grid-template-rows: auto;
+}
+
+.index-table-links {
+    margin: .7rem;
+    width: 20rem;
+    height: 20rem;
+    border: 3px solid black;
+    background: #90D2C0;
+    border-radius: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 2rem;
+    outline: none;
+}
+
+.index-table-links:hover {
+    background: #699C84;
+}
+
+/* #one {
+    background: #90D2C0;
+}
+
+#two {
+    background: #90D2C0;
+}
+
+#three{
+    background: #90D2C0;
+}
+
+#four{
+    background: #90D2C0;
+}
+
+#five{
+    background: #90D2C0;
+}
+
+#six {
+    background: #90D2C0;
+} */
+
+/* Login & signup page styling */
+.login-form-wrap{
+    width: 26rem;
+    height: 16rem;
+    background: #90D2C0;
+    margin: 0 0 5rem 0;
+    border-radius: 20px;
+    border: 3px solid rgb(226, 144, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.student-add-form-wrap{
+    width: 29rem;
+    height: 37rem;
+    background: #90D2C0;
+    margin: 0 0 5rem 0;
+    border-radius: 20px;
+    border: 3px solid rgb(226, 144, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.sponsor-add-form-wrap{
+    width: 30rem;
+    height: 56rem;
+    background: #90D2C0;
+    margin: 0 0 5rem 0;
+    border-radius: 20px;
+    border: 3px solid rgb(226, 144, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.store-add-form-wrap{
+    width: 28rem;
+    height: 16rem;
+    background: #90D2C0;
+    margin: 0 0 5rem 0;
+    border-radius: 20px;
+    border: 3px solid rgb(226, 144, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.todo-add-form-wrap{
+    width: 29rem;
+    height: 30rem;
+    background: #90D2C0;
+    margin: 0 0 5rem 0;
+    border-radius: 20px;
+    border: 3px solid rgb(226, 144, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.student-delete-form-wrap{
+    width: 29rem;
+    height: 16rem;
+    background: #90D2C0;
+    margin: 0 0 5rem 0;
+    border-radius: 20px;
+    border: 3px solid rgb(226, 144, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.store-delete-form-wrap{
+    width: 26rem;
+    height: 10rem;
+    background: #90D2C0;
+    margin: 0 0 5rem 0;
+    border-radius: 20px;
+    border: 3px solid rgb(226, 144, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 21px;
+    text-align: center;
+}
+
+.signup-form-wrap{
+    width: 32rem;
+    height: 29rem;
+    background: #90D2C0;
+    margin: 0 0 5rem 0;
+    border-radius: 20px;
+    border: 3px solid rgb(226, 144, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.control {
+    margin: 3rem;
+}
+
+.add-student-control {
+    text-align: center;
+}
+
+.input {
+    border-radius: 22px;
+    width: 90%;
+    height: 2rem;
+    outline: none;
+}
+
+.button-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.form-button {
+    cursor: pointer;
+    outline: none;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: rgb(226, 144, 106);
+    border: 1px solid #699C84;
+    border-radius: 20px;
+    font-size: 18px;
+    font-family: inherit;
+}
+
+.form-button:hover, .form-button:focus, .form-button:active {
+        letter-spacing: 0.125rem;
+        background-color: rgb(230, 124, 75);
+}
+
+.sponsor-form-button {
+    cursor: pointer;
+    outline: none;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: rgb(226, 144, 106);
+    border: 1px solid #699C84;
+    border-radius: 20px;
+    font-size: 24px;
+    font-family: inherit;
+}
+
+.sponsor-form-button:hover, .sponsor-form-button:focus, .sponsor-form-button:active {
+        letter-spacing: 0.125rem;
+        background-color: rgb(230, 124, 75);
+}
+/* Student's list */
+.container {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.student-list-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+table {
+	width: 890px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.grades-table {
+    width: 770px;
+	border-collapse: collapse;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+/* sponsors and students */
+.table-links {
+    text-decoration: none;
+    color: black;
+}
+
+.table-links:hover {
+    background: rgba(105, 156, 132, 0.406);
+    border-radius: 16px;
+}
+
+th, td {
+	padding: 15px;
+	/* background-color:  ; */
+	color: black;
+}
+
+th {
+	text-align: left;
+}
+
+thead th{	
+    background-color: rgb(226, 144, 106);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.sponsors-th th{
+    text-align: center;
+}
+
+tbody tr {
+    background-color: #fffef8;
+    opacity: .7;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgb(240, 209, 177);
+ }
+
+tbody tr:hover {
+    background-color: rgba(245, 218, 171, 0.3);
+    opacity: 10;
+}
+
+tbody td {
+    position: relative;
+    font-size: 18px;
+}
+
+tbody td:hover tbody td:before {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: -9999px;
+	bottom: -9999px;
+	background-color: rgba(255,255,255,0.2);
+    z-index: -1;
+     
+}
+
+.studentlist-btns, .sponsorslist-btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1rem;
+}
+
+.form-button-studentslist, .form-button-sponsorslist {
+    cursor: pointer;
+    outline: none;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: rgb(226, 144, 106);
+    border: 1px solid #699C84;
+    border-radius: 20px;
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 24px;
+    font-family: inherit;
+}
+
+.form-button-studentslist:hover, .form-button-sponsorslist:hover,.form-button-studentslist:focus, .form-button-sponsorslist:focus,.form-button-sponsorslist:active, .form-button-studentslist:active {
+        letter-spacing: 0.125rem;
+        background-color: rgb(230, 124, 75);
+}
+
+
+
+/* Footer portion of page on template */
+
+.footer-nav {
+    margin: 1.6rem;
+    flex-shrink: 0;
+}
+
+.footer-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}

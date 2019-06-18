@@ -1,29 +1,33 @@
-<section class="table-wrapper">
-    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-        <thead>
+<section class="sponsors-list-wrapper">
+    <table class="sponsors-table-wrapper">
+        <thead class="sponsors-th">
             <tr>
             ${Object.keys(items[0]).map(key =>
                 `<th>${key}</th>`
             ).join('')}
             </tr>
         </thead>
-        ${items.map(sponsor =>
-        `<tr>
-            <td>
-                <figure class="image is-32x32">
-                    <img class="is-rounded" src="${sponsor['Photo']}">
-                </figure>
-            </td>
-            <td><a href="/sponsors/${sponsor['First Name']}-${sponsor['Last Name']}">${sponsor['First Name']}</a></td>
-            <td><a href="/sponsors/${sponsor['First Name']}-${sponsor['Last Name']}">${sponsor['Last Name']}</a></td>
-            <td>${sponsor["Email"]}</td>
-            <td>${sponsor["Phone"]}</td>
-            <td>${sponsor["Donation"]}</td>
-            <td>${sponsor["Given On"]}</td>
-            <td>${sponsor["Received On"]}</td>
-        </tr>`
-        ).join('')}            
+        <tbody class="sponsors-tb">
+            ${items.map(sponsor =>
+            `<tr>
+             <td>
+                    <figure class="image is-32x32">
+                        <img class="sponsor-photo" src="${sponsor['Photo']}">
+                    </figure>
+                </td>
+                <td><a a class="table-links" href="/sponsors/${sponsor['First Name']}-${sponsor['Last Name']}">${sponsor['First Name']}</a></td>
+                <td><a a class="table-links" href="/sponsors/${sponsor['First Name']}-${sponsor['Last Name']}">${sponsor['Last Name']}</a></td>
+                <td>${sponsor["Email"]}</td>
+                <td>${sponsor["Phone"]}</td>
+                <td>${sponsor["Donation"]}</td>
+                <td>${sponsor["Given On"]}</td>
+                <td>${sponsor["Received On"]}</td>
+            </tr>`
+            ).join('')} 
+        </tbody>           
     </table>
-    <a class="button is-primary" href="/sponsors/add-sponsor">Add Sponsor</a>
-    <a class="button is-primary" href="/sponsors/delete-sponsor">Delete Sponsor</a>
+    <div class="sponsorslist-btns">
+        <a class="form-button-sponsorslist" href="/sponsors/add-sponsor">Add Sponsor</a>
+        <a class="form-button-sponsorslist" href="/sponsors/delete-sponsor">Delete Sponsor</a>
+    </div>
 </section>
