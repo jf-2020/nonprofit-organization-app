@@ -14,11 +14,13 @@ router.get('/add-store', storeController.addStore_get);
 /* POST route for adding a store */
 router.post('/add-store', storeController.addStore_post);
 
-/* GET page for adding an item to the store */
-router.get('/add-store-item', storeController.addItemToStore_get);
+// /* route handlers for deleting a supply */
+router.get('/:id/delete-supply', storeController.removeSupply_get);
+router.post('/:id/delete-supply', storeController.removeSupply_post);
 
-/* POST route for adding an item to the store */
-router.post('/add-store-item', storeController.addItemToStore_post);
+/* route handlers for adding a supply */
+router.get('/:id/add-supply', storeController.addSupply_get);
+router.post('/:id/add-supply', storeController.addSupply_post);
 
 /* GET stores page */
 router.get('/:store', storeController.getOneStore);

@@ -6,5 +6,4 @@ const express = require('express'),
 router.get('/:grade', gradeController.getOneGrade);
 router.get('/', gradeController.getAllGrades);
 
-
 module.exports = router;
