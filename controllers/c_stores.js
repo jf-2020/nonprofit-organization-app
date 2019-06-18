@@ -158,7 +158,7 @@ exports.removeSupply_get = async (req, res) => {
     });
 }
 
-/* POST handler for removing supplies from a student */
+/* POST handler for removing inventory from a store */
 exports.removeSupply_post = async (req, res) => {
     const body = req.body;
     const params = req.params;
