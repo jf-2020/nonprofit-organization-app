@@ -1,16 +1,18 @@
-<section class="table-wrapper">
-    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+<section class="grades-list-wrapper">
+    <table class="grades-table">
         <thead>
             <tr>
                 <th>Grade Level</th>
                 <th>School Name</th>
             </tr>
         </thead>
-        ${gradeList.map(grade =>
-            `<tr>
-                <td><a href="/grades/${grade.grade_id}">${grade.level}</a></td>
-                <td>${grade.name}</td>
-            </tr>
-            `).join('')}        
+        <tbody>
+            ${gradeList.map(grade =>
+                `<tr>
+                    <td><a class="table-links" href="/grades/${grade.grade_id}">${grade.level}</a></td>
+                    <td>${grade.name}</td>
+                </tr>
+                `).join('')} 
+        </tbody>       
     </table>
 </section>

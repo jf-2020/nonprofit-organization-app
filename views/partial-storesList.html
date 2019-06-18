@@ -1,5 +1,5 @@
-<section class="table-wrapper">
-    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+<section class="stores-list-wrapper">
+    <table class="stores-table-wrapper">
         <thead>
             <tr>
                 <th>Store ID</th>
@@ -10,11 +10,13 @@
     ${storesList.map(each =>
         `<tr>
             <td>${each.store_id}</td>
-            <td><a href="/stores/${each.store_id}">${each.name}</a></td>
+            <td><a class="table-links" href="/stores/${each.store_id}">${each.name}</a></td>
             <td>${each.location}</td>           
         </tr>`
         ).join('')}            
     </table>
-    <a class="button is-primary" href="/stores/add-store">Add Store</a>
-    <a class="button is-primary" href="/stores/delete-store">Delete Store</a>
+    <div class="studentlist-btns">
+        <a class="form-button-studentslist" href="/stores/add-store">Add Store</a>
+        <a class="form-button-studentslist" href="/stores/delete-store">Delete Store</a>
+    </div>
 </section>

@@ -4,49 +4,51 @@
     <title>NonProfit Organizer | ${title}</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" href="../stylesheets/style.css"/> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="../stylesheets/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins|Quicksand&display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/> -->
+    <!-- <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script> -->
 </head>
 <body>
-    <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-start">
-            <a class="navbar-item" href="/">
-            Home
-            </a>
-        </div>
-
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                    ${!!is_logged_in ? `
-                        <a class="button is-primary is-rounded has-text-weight-bold" href="/users/${userName[0]}">
-                            ${userName[0]}
-                        </a>
-                    ` : `
-                        <a class="button is-primary has-text-weight-bold" href="/users/signup">
-                            Sign Up
-                        </a>
-                    `}
-                    ${nav}
+    <div class="footer-from-head">
+        <div id="navbarBasicExample" class="nav-wrapper">
+            <div class="nav">
+                <a class="navbar-item" href="/">Home</a>
+                <div class="navbar-left">
+                    <div class="nav-items">
+                        ${!!is_logged_in ? `
+                            <a class="index-buttons" href="/users/${userName[0]}">
+                                ${userName[0]}
+                            </a>
+                        ` : `
+                            <a class="index-buttons" href="/users/signup">
+                                Sign Up
+                            </a>
+                        `}
+                        ${nav}
+                    </div>
                 </div>
             </div>
         </div>
+        <div class="template-title-container">
+            <h1 class="partial-title">${title}</h1>
+            <main class="template-container">${partial}</main>
+        </div>
+        <footer class="footer-nav">
+                <div class="footer-items">
+                    <div class="more-footers">
+                        <p class="footer-notes">Site Created By <a href="https://github.com/jf-2020">Jack Faulk</a> & <a href="https://github.com/jf-2020">Liz Aitken</a></p>
+                    </div>
+                    <p class="footer-links">               
+                        <a href="/students">Students</a>
+                        <a href="/sponsors">Sponsors</a>
+                        <a href="/stores">Stores</a>
+                        <a href="/grades">Grades</a>
+                        <a href="/families">Families</a>
+                        <a href="/to-do-list">To-Do List</a>
+                    </p> 
+                </div>
+        </footer>
     </div>
-
-    <h1 class="title has-text-centered has-text-weight-bold">${title}</h1>
-    <main class="container">${partial}</main>
-    <footer class="footer">
-            <div class="content has-text-centered">
-                <p>
-                    <a href="/students">Students</a>
-                    <a href="/sponsors">Sponsors</a>
-                    <a href="/stores">Stores</a>
-                    <a href="/grades">Grades</a>
-                    <a href="/families">Families</a>
-                    <a href="/to-do-list">To-Do List</a>
-                </p>
-            </div>
-    </footer>
 </body>
 </html>
