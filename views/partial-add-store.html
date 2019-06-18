@@ -1,16 +1,19 @@
-<form action="/stores/add-store" method="POST" class="form clearfix">
-    <div class="field">
-        <div class="control">
-            <label class="label">Name of the Store
-                <input class="input" name="name" type="text" placeholder="Store Name"/>
-            </label>
+<div class="store-add-form-wrap">
+    <form action="/stores/add-store" method="POST" class="form clearfix">
+        <div class="field">
+            <div class="control">
+                <label class="label">Name of the Store
+                    <input class="input" name="name" type="text" placeholder="Store Name"/>
+                </label>
+            </div>
+            <div class="control">
+                <label class="label">Location
+                    <input class="input" name="location" type="text" placeholder="Location"/> 
+                </label>
+            </div>
         </div>
-        <div class="control">
-            <label class="label">Location
-                <input class="input" name="location" type="text" placeholder="Location"/> 
-            </label>
+        <div class="button-wrap">
+            <button class="form-button" type="submit">Add Store</button>
         </div>
-    </div>
-
-    <button class="button is-primary" type="submit">Add Store</button>
-</form>
+    </form>
+</div>

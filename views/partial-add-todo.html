@@ -1,34 +1,37 @@
-<form action="/to-do-list/add-todo" method="POST" class="form clearfix">
-    <div class="field">
+<div class="todo-add-form-wrap">
+    <form action="/to-do-list/add-todo" method="POST" class="form clearfix">
         <div class="field">
-            <div class="control">
-                <label class="label">Enter To-Do
-                    <input class="input" name="todo_text" type="text" placeholder="To-Do"/>
-                </label>
+            <div class="field">
+                <div class="control">
+                    <label class="label">Enter To-Do
+                        <input class="input" name="todo_text" type="text" placeholder="To-Do"/>
+                    </label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <label class="label">People Assigned to Task
+                        <input class="input" name="people_assigned" type="text" placeholder="List of People"/>
+                    </label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <label class="label">Due Date
+                        <input class="input" name="due_date" type="date" placeholder="yyyy/mm/dd"/>
+                    </label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <label class="label">Date Completed
+                        <input class="input" name="date_completed" type="date" placeholder="yyyy/mm/dd"/>
+                    </label>
+                </div>
             </div>
         </div>
-        <div class="field">
-            <div class="control">
-                <label class="label">People Assigned to Task
-                    <input class="input" name="people_assigned" type="text" placeholder="List of People"/>
-                </label>
-            </div>
+        <div class="button-wrap">
+            <button class="sponsor-form-button" type="submit">Add</button>
         </div>
-        <div class="field">
-            <div class="control">
-                <label class="label">Due Date
-                    <input class="input" name="due_date" type="date" placeholder="yyyy/mm/dd"/>
-                </label>
-            </div>
-        </div>
-        <div class="field">
-            <div class="control">
-                <label class="label">Date Completed
-                    <input class="input" name="date_completed" type="date" placeholder="yyyy/mm/dd"/>
-                </label>
-            </div>
-        </div>
-    </div>
-
-    <button class="button is-primary" type="submit">Add</button>
-</form>
+    </form>
+</div>

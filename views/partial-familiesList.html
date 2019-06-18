@@ -1,5 +1,5 @@
-<section class="table-wrapper">
-    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+<section class="families-list-wrapper">
+    <table class="families-table-wrapper">
         <thead>
             <tr>
                 <th>Family ID</th>
@@ -8,13 +8,15 @@
                 <th>Church Affiliation</th>
             </tr>
         </thead>
-    ${familyList.map(each =>
-        `<tr>
-            <td>${each.family_id}</td>
-            <td><a href="/families/${each.family_id}">${each.name}</a></td>
-            <td>${each.location} </td>
-            <td>${each.church_affiliation} </td>
-        </tr>`
-        ).join('')}            
+        <tbody>
+            ${familyList.map(each =>
+                `<tr>
+                    <td>${each.family_id}</td>
+                    <td><a class="table-links" href="/families/${each.family_id}">${each.name}</a></td>
+                    <td>${each.location} </td>
+                    <td>${each.church_affiliation} </td>
+                </tr>`
+                ).join('')} 
+        <tbody>          
     </table>
 </section>

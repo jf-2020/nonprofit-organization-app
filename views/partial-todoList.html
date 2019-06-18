@@ -1,5 +1,5 @@
-<section class="table-wrapper">
-    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+<section class="todo-list-wrapper">
+    <table class="todo-table">
         <thead>
             <tr>
                 <th>What's on the Agenda?</th>
@@ -8,16 +8,19 @@
                 <th>Date Completed</th>               
             </tr>
         </thead>
-    ${todoList.map(each =>
-        `<tr>
-            <td>${each.todo_text}</td>
-            <td>${each.people_assigned}</td>
-            <td>${each.due_date} </td>
-            <td>${each.date_completed} </td>
-        </tr>`
-        ).join('')}            
+        <tbody>
+            ${todoList.map(each =>
+                `<tr>
+                    <td>${each.todo_text}</td>
+                    <td>${each.people_assigned}</td>
+                    <td>${each.due_date} </td>
+                    <td>${each.date_completed} </td>
+                </tr>`
+                ).join('')} 
+        </tbody>           
     </table>
-
-    <a class="button is-primary" href="/to-do-list/add-todo">Add To-Do</a>
-    <a class="button is-primary" href="/to-do-list/remove-todo">Remove To-Do</a>
+    <div class="studentlist-btns">
+        <a class="form-button-studentslist" href="/to-do-list/add-todo">Add To-Do</a>
+        <a class="form-button-studentslist" href="/to-do-list/remove-todo">Remove To-Do</a>
+    </div>
 </section>
