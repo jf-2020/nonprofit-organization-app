@@ -127,7 +127,9 @@ exports.addSupply_get = async (req, res) => {
             is_logged_in: req.session.is_logged_in,
             first_name: req.session.first_name,
             userName: req.session.first_name,
-            id: id
+            id: id,
+            is_store: false,
+            is_student: true
         },
         partials: {
             partial: 'partial-add-supply',
@@ -165,7 +167,9 @@ exports.removeSupply_get = async (req, res) => {
             is_logged_in: req.session.is_logged_in,
             first_name: req.session.first_name,
             userName: req.session.first_name,
-            id: id
+            id: id,
+            is_store: false,
+            is_student: true
         },
         partials: {
             partial: 'partial-delete-supply',
@@ -181,9 +185,6 @@ exports.removeSupply_post = async (req, res) => {
     
     const supply_name = body.supply_name,
           id = params.id;
-
-    console.log("supply_name:", supply_name);
-    console.log("student_id:", id);
 
     Students.removeSupplyByStudentId(id, supply_name)
     .then(() => {
