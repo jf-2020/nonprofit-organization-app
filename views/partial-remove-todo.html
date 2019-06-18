@@ -1,20 +1,23 @@
-<form action="/to-do-list/remove-todo" method="POST" class="form clearfix">
-    <div class="field">
+<div class="student-delete-form-wrap">
+    <form action="/to-do-list/remove-todo" method="POST" class="form clearfix">
         <div class="field">
-            <div class="control">
-                <label class="label">What Was Done?
-                    <input class="input" name="todo_text" type="text" placeholder="To-Do"/>
-                </label>
+            <div class="field">
+                <div class="control">
+                    <label class="label">What Was Done?
+                        <input class="input" name="todo_text" type="text" placeholder="To-Do"/>
+                    </label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <label class="label">People Assigned to Task
+                        <input class="input" name="people_assigned" type="text" placeholder="List of People"/>
+                    </label>
+                </div>
             </div>
         </div>
-        <div class="field">
-            <div class="control">
-                <label class="label">People Assigned to Task
-                    <input class="input" name="people_assigned" type="text" placeholder="List of People"/>
-                </label>
-            </div>
+        <div class="button-wrap">
+            <button class="form-button" type="submit">Complete To-Do</button>
         </div>
-    </div>
-
-    <button class="button is-primary" type="submit">Complete To-Do</button>
-</form>
+    </form>
+</div>

@@ -95,6 +95,7 @@ body {
     justify-content: center;
     text-align: center;
     font-size: 2rem;
+    outline: none;
 }
 
 .index-table-links:hover {
@@ -139,6 +140,85 @@ body {
     font-size: 21px;
 }
 
+.student-add-form-wrap{
+    width: 29rem;
+    height: 37rem;
+    background: #90D2C0;
+    margin: 0 0 5rem 0;
+    border-radius: 20px;
+    border: 3px solid rgb(226, 144, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.sponsor-add-form-wrap{
+    width: 30rem;
+    height: 56rem;
+    background: #90D2C0;
+    margin: 0 0 5rem 0;
+    border-radius: 20px;
+    border: 3px solid rgb(226, 144, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.store-add-form-wrap{
+    width: 28rem;
+    height: 16rem;
+    background: #90D2C0;
+    margin: 0 0 5rem 0;
+    border-radius: 20px;
+    border: 3px solid rgb(226, 144, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.todo-add-form-wrap{
+    width: 29rem;
+    height: 30rem;
+    background: #90D2C0;
+    margin: 0 0 5rem 0;
+    border-radius: 20px;
+    border: 3px solid rgb(226, 144, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.student-delete-form-wrap{
+    width: 29rem;
+    height: 16rem;
+    background: #90D2C0;
+    margin: 0 0 5rem 0;
+    border-radius: 20px;
+    border: 3px solid rgb(226, 144, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 21px;
+}
+
+.store-delete-form-wrap{
+    width: 26rem;
+    height: 10rem;
+    background: #90D2C0;
+    margin: 0 0 5rem 0;
+    border-radius: 20px;
+    border: 3px solid rgb(226, 144, 106);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 21px;
+    text-align: center;
+}
+
 .signup-form-wrap{
     width: 32rem;
     height: 29rem;
@@ -156,10 +236,15 @@ body {
     margin: 3rem;
 }
 
+.add-student-control {
+    text-align: center;
+}
+
 .input {
     border-radius: 22px;
     width: 90%;
     height: 2rem;
+    outline: none;
 }
 
 .button-wrap {
@@ -184,7 +269,23 @@ body {
         letter-spacing: 0.125rem;
         background-color: rgb(230, 124, 75);
 }
-  
+
+.sponsor-form-button {
+    cursor: pointer;
+    outline: none;
+    vertical-align: middle;
+    text-decoration: none;
+    background-color: rgb(226, 144, 106);
+    border: 1px solid #699C84;
+    border-radius: 20px;
+    font-size: 24px;
+    font-family: inherit;
+}
+
+.sponsor-form-button:hover, .sponsor-form-button:focus, .sponsor-form-button:active {
+        letter-spacing: 0.125rem;
+        background-color: rgb(230, 124, 75);
+}
 /* Student's list */
 .container {
 	position: absolute;

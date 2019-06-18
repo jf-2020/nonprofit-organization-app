@@ -1,39 +1,42 @@
-<form action="/students/add-student" method="POST" class="form clearfix">
-    <div class="field">
-        <div class="control">
-            <label class="label">First Name
-                <input class="input" name="first_name" type="text" placeholder="First Name"/>
-            </label>
+<div class="student-add-form-wrap">
+    <form action="/students/add-student" method="POST" class="form clearfix">
+        <div class="field">
+            <div class="control">
+                <label class="label">First Name
+                    <input class="input" name="first_name" type="text" placeholder="First Name"/>
+                </label>
+            </div>
         </div>
-    </div>
-    <div class="field">
-        <div class="control">
-            <label class="label">Last Name
-                <input class="input" name="last_name" type="text" placeholder="Last Name"/>
-            </label>
+        <div class="field">
+            <div class="control">
+                <label class="label">Last Name
+                    <input class="input" name="last_name" type="text" placeholder="Last Name"/>
+                </label>
+            </div>
         </div>
-    </div>
-    <div class="field">
-        <div class="control">
-            <label class="label">Age
-                <input class="input" name="age" type="number" placeholder="Age"/>
-            </label>
+        <div class="field">
+            <div class="control">
+                <label class="label">Age
+                    <input class="input" name="age" type="number" placeholder="Age"/>
+                </label>
+            </div>
         </div>
-    </div>
-    <div class="field">
-        <div class="control">
-            <label class="label">Sponsorhip Level
-                <input class="input" name="sponsorship" type="text" placeholder="Sponsorhip Level"/>
-            </label>
+        <div class="field">
+            <div class="control">
+                <label class="label">Sponsorhip Level
+                    <input class="input" name="sponsorship" type="text" placeholder="Sponsorhip Level"/>
+                </label>
+            </div>
         </div>
-    </div>
-    <div class="field">
-        <div class="control">
-            <label class="label">Money
-                <input class="input" name="money" type="number" step="0.01" placeholder="$"/>
-            </label>
+        <div class="field">
+            <div class="control">
+                <label class="label">Money
+                    <input class="input" name="money" type="number" step="0.01" placeholder="$"/>
+                </label>
+            </div>
         </div>
-    </div>
-
-    <button class="button is-primary" type="submit">Add Student</button>
-</form>
+        <div class="button-wrap">
+            <button class="form-button" type="submit">Add Student</button>
+        </div>
+    </form>
+</div>
