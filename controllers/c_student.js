@@ -79,7 +79,9 @@ exports.addStudent_post = async (req, res) => {
 
     // now, instantiate student with said id+1
     const student = new Students(maxId.max+1, first_name, last_name, age, sponsorship,
-                                null, money);
+                                null, money, null);
+
+    console.log("student:", student);
 
     student.addStudent(maxLinkId.max).then(() => {
         res.redirect('/students');

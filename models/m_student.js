@@ -1,7 +1,7 @@
 const db = require('./conn.js');
 
 class Students {
-    constructor(student_id, first_name, last_name, age, sponsorship, grades_id , money, families_id, sponsors_id, link_id){
+    constructor(student_id, first_name, last_name, age, sponsorship, grades_id , money, families_id, sponsors_id, link_id, student_photo){
 
         this.student_id = student_id;
         this.first_name = first_name;
@@ -46,6 +46,7 @@ class Students {
                 l.students_id = s.student_id`;
 
             const response = await db.any(queryAll);
+            console.log("response:", response);
             return response;
         }catch(error) {
             return error.message;

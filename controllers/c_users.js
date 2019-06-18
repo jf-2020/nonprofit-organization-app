@@ -66,6 +66,8 @@ exports.sign_up_post = (req, res) => {
 
     const user = new User(null, hash, first_name, last_name, email, null, null, null);    
 
+    console.log("HERE");
+
     user.addUser().then(() => {
         res.redirect('/');
     });
