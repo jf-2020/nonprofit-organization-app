@@ -1,5 +1,5 @@
-<section class="table-wrapper">
-    <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+<section class="student-list-wrapper">
+    <table class="student-table-wrapper">
         <thead>
             <tr>
                 <th>Student ID</th>
@@ -16,18 +16,20 @@
         ${studentList.map(kid =>
             `<tr>
                 <td>${kid.student_id}</td>
-                <td><a href="/students/${kid.student_id}">${kid.first_name}</a></td>
+                <td><a class="table-links" href="/students/${kid.student_id}">${kid.first_name}</a></td>
                 <td>${kid.last_name}</td>
                 <td>${kid.age}</td>
                 <td>${kid.level}</td>
                 <td>${kid.sponsorship}</td>
                 <td>${kid.money}</td>
-                <td><a href="/families/${kid.families_id}">${kid.name}</a></td>
+                <td><a class="table-links" href="/families/${kid.families_id}">${kid.name}</a></td>
             </tr>
             `).join('')}
         </tbody>        
     </table>
-    <a class="button is-primary" href="/students/add-student">Add Student</a>
-    <a class="button is-primary" href="/students/delete-student">Delete Student</a>
+    <div class="studentlist-btns">
+        <a class="form-button-studentslist" href="/students/add-student">Add Student</a>
+        <a class="form-button-studentslist" href="/students/delete-student">Delete Student</a>
+    </div>
 </section>
 

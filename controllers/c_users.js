@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs'),
 exports.login_get = (req, res) => {
     res.render('template', {
         locals: {
-            title: 'SCP',
+            title: 'Login',
             is_logged_in: req.session.is_logged_in,
             first_name: req.session.first_name
         },
@@ -46,7 +46,7 @@ exports.logout_get = (req, res) => {
 exports.sign_up_get = (req, res) => {
     res.render('template', {
         locals: {
-            title: 'User Sign Up',
+            title: 'Sign Up',
             is_logged_in: req.session.is_logged_in,
             first_name: req.session.first_name
         },
