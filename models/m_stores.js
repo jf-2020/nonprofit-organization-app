@@ -83,6 +83,53 @@ class Stores {
         }
     }
 
+    static async addItemToStore(supply_name, unit_cost, quantity, store_id) {
+        // first, get maximum supply id
+        const supply_id = await Stores.getMaxSupplyId();
+
+        // then insert into db with said id+1
+        try {
+            const response = await db.none(`
+                INSERT INTO supplies
+                    (supply_id, supply_name, unit_cost, quantity, store_id)
+                VALUES
+                    (${supply_id+1}, '${supply_name}', ${unit_cost}, ${quantity}, ${store_id}) 
+            `);
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+    }
+
+    static async removeSupplyByStoreId(store_id, item) {
+        const query = `DELETE FROM 
+                                supplies
+                            WHERE
+                                store_id = ${store_id}
+                            AND
+                                supply_name = '${item}'`;
+
+        try {
+            const response = await db.none(query);
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+    }
+
+    static async getMaxSupplyId() {
+        // get the current maximum supply id
+        const query = `SELECT max(supply_id) FROM supplies`;
+
+        try {
+            const response = await db.one(query);
+            return response.max;
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+    }
+
     static async getStoreIdByName(name) {
         // given the name of the store, return the store_id in the stores
         // table corresponding to said store

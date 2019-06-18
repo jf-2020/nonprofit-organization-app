@@ -94,32 +94,80 @@ exports.deleteStore_post = async (req, res) => {
     });
 };
 
-exports.addItemToStore_get = (req, res) => {
+/* GET handler for adding inventory to a store */
+exports.addSupply_get = async (req, res) => {
+    const id = req.params.id;
+    
+    const store = await Stores.getOneStore(id);
+    const name = store.name;
 
     res.render('template', {
         locals: {
-            title: 'Add Item to Store',
+            title: `Add Inventory to ${name}`,
             is_logged_in: req.session.is_logged_in,
             first_name: req.session.first_name,
-            userName: req.session.first_name
+            userName: req.session.first_name,
+            id: id,
+            is_store: true,
+            is_student: false
         },
         partials: {
-            partial: 'partial-add-item-to-store',
+            partial: 'partial-add-supply',
             nav: 'partial-nav'
         }
-    })
+    });
 }
 
-exports.addItemToStore_post = async (req, res) => {
-    const data = req.body;
-    const supply_name = data.supply_name,
-          unit_cost = data.unit_cost,
-          quantity = data.quantity,
-          store_id = data.store_id;
+/* POST handler for adding inventory to a store */
+exports.addSupply_post = async (req, res) => {
+    const body = req.body;
+    const params = req.params;
+
+    const supply_name = body.supply_name,
+          price = body.unit_cost,
+          quantity = body.quantity,
+          id = params.id;
+
+    Stores.addItemToStore(supply_name, price, quantity, id)
+    .then(() => {
+        res.redirect(`/stores/${id}`);
+    });
+}
+
+/* GET handler for removing inventory from a store */
+exports.removeSupply_get = async (req, res) => {
+    const id = req.params.id;
     
-    const store = new Stores(supply_name, unit_cost, quantity, store_id);
+    const store = await Stores.getOneStore(id);
+    const name = store.name;
+
+    res.render('template', {
+        locals: {
+            title: `Remove Inventory from ${name}`,
+            is_logged_in: req.session.is_logged_in,
+            first_name: req.session.first_name,
+            userName: req.session.first_name,
+            id: id,
+            is_store: true,
+            is_student: false
+        },
+        partials: {
+            partial: 'partial-delete-supply',
+            nav: 'partial-nav'
+        }
+    });
+}
+
+/* POST handler for removing supplies from a student */
+exports.removeSupply_post = async (req, res) => {
+    const body = req.body;
+    const params = req.params;
     
-    store.addItemToStore().then(() => {
-        res.redirect('/stores');
-    });    
-};
+    const supply_name = body.supply_name,
+          id = params.id;
+
+    Stores.removeSupplyByStoreId(id, supply_name)
+    .then(() => {
+        res.redirect(`/stores/${id}`);
+    });
+}
