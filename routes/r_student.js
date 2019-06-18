@@ -17,8 +17,15 @@ router.post('/add-student', studentController.addStudent_post);
 /* GET students page */
 router.get('/', studentController.getAllStudents);
 
+/* route handlers for deleting a supply */
+router.get('/:id/delete-supply', studentController.removeSupply_get);
+router.post('/:id/delete-supply', studentController.removeSupply_post);
+
+/* route handlers for adding a supply */
+router.get('/:id/add-supply', studentController.addSupply_get);
+router.post('/:id/add-supply', studentController.addSupply_post);
+
 /* GET student by id */
 router.get('/:student', studentController.getOneStudent);
-
 
 module.exports = router;

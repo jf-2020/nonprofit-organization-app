@@ -7,6 +7,9 @@
 # all local sessions
 sessions/
 
+# ssh-related
+ssh-key.txt
+
 ### macOS ###
 # General
 .DS_Store

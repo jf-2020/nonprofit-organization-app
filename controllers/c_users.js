@@ -103,7 +103,7 @@ exports.delete_user_get = (req, res) => {
             partial: 'partial-delete-user',
             nav: 'partial-nav'
         }
-    })
+    });
 }
 
 /* POST handler for delete student page */
@@ -121,4 +121,38 @@ exports.delete_user_post = async (req, res) => {
         req.session.destroy();
         res.redirect('/');
     });
-};
+}
+
+// GET handler for update user information page
+exports.update_user_get = async (req, res) => {
+    const name = req.params['first'];
+    const user = await User.getUserByName(name);
+
+    res.render('template', {
+        locals: {
+            title: 'Update Information',
+            is_logged_in: req.session.is_logged_in,
+            first_name: req.session.first_name,
+            userName: [user.first, user.last]
+        },
+        partials: {
+            partial: 'partial-update-user',
+            nav: 'partial-nav'
+        }
+    });
+}
+
+// POST handler for update user information page
+exports.update_user_post = async (req, res) => {
+    // first, extract all the necessary data: new phone number, ner photo url and the
+    // user's user_id for the users table
+    const { phone, photo } = req.body;
+    const name = req.params.first;
+    const userId = await User.getUserId(name);
+
+    // then perform the record update
+    User.updateUserInformation(userId, phone, photo).then(() => {
+        // followed by redirecting to the user's profile page
+        res.redirect('/');
+    });   
+}

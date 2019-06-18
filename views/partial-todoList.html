@@ -2,7 +2,6 @@
     <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
         <thead>
             <tr>
-                <th>Item Id</th>
                 <th>What's on the Agenda?</th>
                 <th>Persons Assigned</th>
                 <th>Due Date</th>
@@ -11,7 +10,6 @@
         </thead>
     ${todoList.map(each =>
         `<tr>
-            <td>${each.todo_id}</td>
             <td>${each.todo_text}</td>
             <td>${each.people_assigned}</td>
             <td>${each.due_date} </td>
@@ -19,22 +17,7 @@
         </tr>`
         ).join('')}            
     </table>
-    <section class="form-wrapper">
-        <p class="input-title">Add another item to the list</p>
-        <form action="/to-do-list" method="POST">
-            <label>Enter Item
-                <input type="text" name="todo_text">
-            </label>
-            <label>People Assigned
-                <input type="text" name="people_assigned">
-            </label>
-            <label>Due Date
-                <input type="text" name="due_date">
-            </label>
-            <label>Date Completed
-                <input type="text" name="date_completed">
-            </label>
-            <button type="submit" class= "is-primary">Submit</button>
-        </form>
-    </section>
+
+    <a class="button is-primary" href="/to-do-list/add-todo">Add To-Do</a>
+    <a class="button is-primary" href="/to-do-list/remove-todo">Remove To-Do</a>
 </section>
