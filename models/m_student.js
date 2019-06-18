@@ -294,6 +294,53 @@ class Students {
             return error.message;
         }
     }
+
+    static async addSupplyToStudentById(student_id, item, price, quantity) {
+        // first, get maximum supply id
+        const supply_id = await Students.getMaxSupplyId();
+
+        // then insert into db with said id+1
+        try {
+            const response = await db.none(`
+                INSERT INTO supplies
+                    (supply_id, supply_name, unit_cost, quantity, student_id)
+                VALUES
+                    (${supply_id+1}, '${item}', ${price}, ${quantity}, ${student_id}) 
+            `);
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+    }
+
+    static async removeSupplyByStudentId(student_id, item) {
+        const query = `DELETE FROM 
+                                supplies
+                            WHERE
+                                student_id = ${student_id}
+                            AND
+                                supply_name = '${item}'`;
+        
+        try {
+            const response = await db.none(query);
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+    }
+
+    static async getMaxSupplyId() {
+        // get the current maximum supply id
+        const query = `SELECT max(supply_id) FROM supplies`;
+
+        try {
+            const response = await db.one(query);
+            return response.max;
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+    }
 }
 
 module.exports = Students;

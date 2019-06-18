@@ -114,6 +114,49 @@ class User {
             return error.message;
         }
     }
+
+    static async updateUserInformation(id, phone, photo) {
+        // given a user's user_id, update their phone & photo information
+        // in the users table
+
+        // first, update the user's phone information
+        const phoneQuery = `
+                UPDATE users SET phone = '${phone}' WHERE user_id = ${id}
+        `;
+        try {
+            const response1 = await db.none(phoneQuery);
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+
+        // second, update the user's photo information
+        const photoQuery = `
+                UPDATE users SET photo = '${photo}' WHERE user_id = ${id}
+        `;
+        try {
+            const response2 = await db.none(photoQuery);
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+
+    }
+
+    static async getUserId(first_name) {
+        // given the first name of a user, return their id from the user table
+        const query = `
+            SELECT * FROM users WHERE first_name = '${first_name}'
+        `;
+
+        try {
+            const response = await db.one(query);
+            return response.user_id;
+        } catch(error) {
+            console.log("Error:", error.message);
+            return error.message;
+        }
+    }
 }
 
 module.exports = User;
