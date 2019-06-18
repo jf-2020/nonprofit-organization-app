@@ -114,3 +114,79 @@ exports.deleteStudent_post = async (req, res) => {
     });
 };
 
+/* GET handler for adding supplies to a student */
+exports.addSupply_get = async (req, res) => {
+    const id = req.params.id;
+    
+    const student = await Students.getOneStudent(id);
+    const name = student.first_name + " " + student.last_name;
+
+    res.render('template', {
+        locals: {
+            title: `Give Supplies to ${name}`,
+            is_logged_in: req.session.is_logged_in,
+            first_name: req.session.first_name,
+            userName: req.session.first_name,
+            id: id
+        },
+        partials: {
+            partial: 'partial-add-supply',
+            nav: 'partial-nav'
+        }
+    });
+}
+
+/* POST handler for adding supplies to a student */
+exports.addSupply_post = async (req, res) => {
+    const body = req.body;
+    const params = req.params;
+    
+    const supply_name = body.supply_name,
+          price = body.unit_cost,
+          quantity = body.quantity,
+          id = params.id;
+
+    Students.addSupplyToStudentById(id, supply_name, price, quantity)
+    .then(() => {
+        res.redirect(`/students/${id}`);
+    });
+}
+
+/* GET handler for removing supplies from a student */
+exports.removeSupply_get = async (req, res) => {
+    const id = req.params.id;
+    
+    const student = await Students.getOneStudent(id);
+    const name = student.first_name + " " + student.last_name;
+
+    res.render('template', {
+        locals: {
+            title: `Remove Supplies from ${name}`,
+            is_logged_in: req.session.is_logged_in,
+            first_name: req.session.first_name,
+            userName: req.session.first_name,
+            id: id
+        },
+        partials: {
+            partial: 'partial-delete-supply',
+            nav: 'partial-nav'
+        }
+    });
+}
+
+/* POST handler for removing supplies from a student */
+exports.removeSupply_post = async (req, res) => {
+    const body = req.body;
+    const params = req.params;
+    
+    const supply_name = body.supply_name,
+          id = params.id;
+
+    console.log("supply_name:", supply_name);
+    console.log("student_id:", id);
+
+    Students.removeSupplyByStudentId(id, supply_name)
+    .then(() => {
+        res.redirect(`/students/${id}`);
+    });
+}
