@@ -18,7 +18,7 @@
     "express-es6-template-engine": "^2.1.9",
     "express-session": "^1.16.2",
     "http-errors": "~1.6.3",
-    "mocha": "^6.1.4",
+    "mocha": "^10.2.0",
     "morgan": "^1.9.1",
     "nodemon": "^1.19.1",
     "pg-promise": "^8.7.2",
